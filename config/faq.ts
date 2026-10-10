@@ -51,7 +51,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "Who owns the website after completion?",
     answer:
-      "You do. Once final payment is made, the website and its contents belong entirely to you. We'll hand over all relevant access and credentials.",
+      "Once final payment is made, you'll receive the completed website files and all relevant access credentials. The website content you provide remains yours. Third-party services, licensed assets, and hosted platforms remain subject to their own terms.",
   },
   {
     question: "What happens after launch?",

@@ -229,8 +229,8 @@ export default function StationeryPrintingPage() {
                 alt: "Office stationery flatlay with pens, clips, and organiser",
               },
               {
-                src: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&q=75&auto=format&fit=crop",
-                alt: "Printed visiting cards and letterheads ready for delivery",
+                src: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&q=75&auto=format&fit=crop",
+                alt: "Printed business cards and branding stationery laid out on a desk",
               },
             ].map((img, i) => (
               <div key={i} style={{ position: "relative", height: "180px", borderRadius: "6px", overflow: "hidden" }}>

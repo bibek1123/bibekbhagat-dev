@@ -176,7 +176,7 @@ export default function ManufacturingPage() {
               >
                 <div style={{ width: "6px", height: "6px", background: "#E8601C", borderRadius: "50%" }} />
                 <span style={{ fontSize: "0.6875rem", fontWeight: 700, color: "#E8601C", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                  Rajkot, Gujarat · Est. Industry
+                  Rajkot, Gujarat
                 </span>
               </div>
 
@@ -254,8 +254,8 @@ export default function ManufacturingPage() {
                 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=900&q=75&auto=format&fit=crop"
-                  alt="Precision industrial steel bolts and fasteners on a dark metal surface, illustrative"
+                  src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=75&auto=format&fit=crop"
+                  alt="Industrial steel hex bolts and threaded fasteners, precision engineered"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"

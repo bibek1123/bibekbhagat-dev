@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -119,12 +120,12 @@ const ingredients = [
 
 const whyKaasni = [
   {
-    title: "Clinically Formulated",
-    body: "Every product is developed with dermatological input. We list every active, every percentage, every reason it's there.",
+    title: "Full Ingredient Transparency",
+    body: "Every product lists every active, every percentage, every reason it's included. No proprietary blends, no hidden fillers.",
   },
   {
     title: "Skin-Safe Standards",
-    body: "No parabens, no sulphates, no synthetic fragrance. Tested for Indian climate conditions — humid summers and dry winters.",
+    body: "No parabens, no sulphates, no synthetic fragrance. Formulated for Indian climate conditions — humid summers and dry winters.",
   },
   {
     title: "Honest Pricing",
@@ -301,7 +302,7 @@ export default function EcommercePage() {
               marginBottom: "2.5rem",
             }}
           >
-            Clinically formulated for Indian skin — every active, every percentage, every benefit. No mystery ingredients.
+            Formulated for Indian skin — every active, every percentage, every benefit. No mystery ingredients.
           </p>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
             <a
@@ -341,7 +342,7 @@ export default function EcommercePage() {
               { label: "No Parabens", icon: "✓" },
               { label: "No Sulphates", icon: "✓" },
               { label: "Cruelty Free", icon: "✓" },
-              { label: "Derma Tested", icon: "✓" },
+              { label: "No Fragrance", icon: "✓" },
             ].map((t) => (
               <div key={t.label}>
                 <div style={{ fontSize: "0.6875rem", fontWeight: 700, color: "#E8C4A0" }}>{t.icon}</div>
@@ -373,59 +374,26 @@ export default function EcommercePage() {
               width: "100%",
             }}
           >
-            {/* Product bottle illustration (CSS) */}
+            {/* Product photo */}
             <div
               style={{
-                width: "80px",
-                height: "140px",
-                margin: "0 auto 2rem",
                 position: "relative",
+                width: "100%",
+                aspectRatio: "3/4",
+                marginBottom: "1.5rem",
+                borderRadius: "10px",
+                overflow: "hidden",
+                background: "rgba(232,196,160,0.08)",
               }}
             >
-              {/* Bottle body */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "64px",
-                  height: "120px",
-                  background: "linear-gradient(160deg, rgba(232,196,160,0.9), rgba(180,130,100,0.9))",
-                  borderRadius: "8px 8px 12px 12px",
-                  border: "1px solid rgba(232,196,160,0.4)",
-                }}
+              <Image
+                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80&auto=format&fit=crop"
+                alt="Kaasni skincare products — serums and glass bottles on a clean pale surface"
+                fill
+                className="object-cover object-center"
+                sizes="320px"
+                priority
               />
-              {/* Bottle neck */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "118px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "32px",
-                  height: "20px",
-                  background: "rgba(232,196,160,0.7)",
-                  borderRadius: "4px 4px 0 0",
-                }}
-              />
-              {/* Label */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "35px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "50px",
-                  background: "rgba(26,10,46,0.7)",
-                  borderRadius: "3px",
-                  padding: "4px",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: "0.4375rem", fontWeight: 800, color: "#E8C4A0", letterSpacing: "0.1em" }}>KAASNI</div>
-                <div style={{ fontSize: "0.375rem", color: "rgba(232,196,160,0.7)", letterSpacing: "0.05em" }}>SERUM</div>
-              </div>
             </div>
 
             <div style={{ textAlign: "center" }}>

@@ -135,9 +135,11 @@ export default function IeltsStudyAbroadPage() {
       <section
         style={{
           paddingTop: "68px",
+          minHeight: "88vh",
+          display: "flex",
+          flexDirection: "column",
           position: "relative",
           overflow: "hidden",
-          padding: "0",
         }}
       >
         {/* Real hero photography behind gradient */}
@@ -149,12 +151,12 @@ export default function IeltsStudyAbroadPage() {
           sizes="100vw"
           priority
         />
-        {/* Navy gradient overlay preserves the brand colour and legibility */}
+        {/* Navy gradient overlay — left heavier for text legibility, right lighter to show photo */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(160deg, rgba(15,16,64,0.95) 0%, rgba(28,37,128,0.88) 55%, rgba(42,63,191,0.80) 100%)",
+            background: "linear-gradient(160deg, rgba(15,16,64,0.82) 0%, rgba(28,37,128,0.72) 50%, rgba(42,63,191,0.50) 100%)",
           }}
         />
         <div

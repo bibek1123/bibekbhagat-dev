@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -51,9 +52,15 @@ const menuSections = [
 ];
 
 const galleryMoods = [
-  { label: "The Main Room", desc: "Warm amber light, raw stone walls, handcrafted tables for 60", bg: "linear-gradient(135deg, #2C1810 0%, #4A2C1A 100%)", accent: "#E8A840" },
-  { label: "The Kitchen Window", desc: "Open kitchen, live fire, theatre in every plate", bg: "linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%)", accent: "#D4A040" },
-  { label: "The Terrace", desc: "Al fresco dining under the stars — open Thursday to Sunday", bg: "linear-gradient(135deg, #1C2410 0%, #2E3820 100%)", accent: "#9CB870" },
+  { label: "The Main Room", desc: "Warm amber light, raw stone walls, handcrafted tables for 60", accent: "#E8A840",
+    img: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Warm restaurant dining room with amber lighting" },
+  { label: "The Kitchen Window", desc: "Open kitchen, live fire, theatre in every plate", accent: "#D4A040",
+    img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Professional restaurant open kitchen with live fire cooking" },
+  { label: "The Terrace", desc: "Al fresco dining under the stars — open Thursday to Sunday", accent: "#9CB870",
+    img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Beautiful restaurant terrace dining area in the evening" },
 ];
 
 const openingHours = [
@@ -128,29 +135,29 @@ export default function RestaurantPage() {
           overflow: "hidden",
         }}
       >
-        {/* Deep atmospheric background */}
+        {/* Real restaurant atmosphere photography */}
+        <Image
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80&auto=format&fit=crop"
+          alt="Contemporary Indian restaurant interior — warm amber candlelight and dramatic dining atmosphere"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+        {/* Dark overlay for atmosphere and legibility */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(180deg, #0E0B06 0%, #2C1810 30%, #4A2C1A 60%, #3A1E0E 100%)",
+            background: "linear-gradient(180deg, rgba(14,11,6,0.55) 0%, rgba(14,11,6,0.35) 40%, rgba(14,11,6,0.75) 100%)",
           }}
         />
-        {/* Ember glow effect */}
+        {/* Ember glow on top of photo */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "radial-gradient(ellipse 80% 60% at 50% 70%, rgba(232,168,64,0.15) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 30%, rgba(200,100,40,0.1) 0%, transparent 60%)",
-          }}
-        />
-        {/* Subtle noise texture simulation */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
-            opacity: 0.4,
+            backgroundImage: "radial-gradient(ellipse 60% 40% at 70% 60%, rgba(232,168,64,0.12) 0%, transparent 70%)",
           }}
         />
 
@@ -175,7 +182,7 @@ export default function RestaurantPage() {
             >
               <div style={{ width: "40px", height: "1px", background: "#E8A840" }} />
               <span style={{ fontSize: "0.6875rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#E8A840", fontWeight: 600 }}>
-                Contemporary Indian · Est. 2023
+                Contemporary Indian · Mumbai
               </span>
             </div>
 
@@ -421,7 +428,6 @@ export default function RestaurantPage() {
               <div
                 key={space.label}
                 style={{
-                  background: space.bg,
                   height: "340px",
                   display: "flex",
                   flexDirection: "column",
@@ -431,7 +437,14 @@ export default function RestaurantPage() {
                   overflow: "hidden",
                 }}
               >
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)" }} />
+                <Image
+                  src={space.img}
+                  alt={space.imgAlt}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(14,11,6,0.88) 0%, rgba(14,11,6,0.3) 60%, transparent 100%)" }} />
                 <div style={{ position: "relative" }}>
                   <div style={{ fontSize: "0.625rem", letterSpacing: "0.2em", textTransform: "uppercase", color: space.accent, fontWeight: 700, marginBottom: "0.5rem" }}>Space</div>
                   <h3 style={{ fontSize: "1.125rem", fontWeight: 800, color: "white", marginBottom: "0.5rem" }}>{space.label}</h3>

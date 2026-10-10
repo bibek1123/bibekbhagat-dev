@@ -156,108 +156,112 @@ export default function HomeServicesPage() {
         </div>
       </nav>
 
-      {/* ── HERO ── Immediate problem/solution, CTA above fold */}
+      {/* ── HERO ── Full-bleed photo with content overlay */}
       <section
         style={{
           paddingTop: "60px",
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          position: "relative",
+          overflow: "hidden",
           background: "#1E293B",
-          padding: "0",
         }}
       >
-        {/* Real hero photo strip */}
-        <div style={{ position: "relative", height: "220px", overflow: "hidden" }}>
-          <Image
-            src="/work/images/home-services-hero.jpg"
-            alt="Professional technician servicing a home appliance in a clean Indian apartment"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-            priority
-          />
-          <div style={{ position: "absolute", inset: 0, background: "rgba(30,41,59,0.55)" }} />
-        </div>
+        {/* Real hero photo */}
+        <Image
+          src="/work/images/home-services-hero.jpg"
+          alt="Professional technician servicing a home appliance in a clean Indian apartment"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+        {/* Dark gradient overlay */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(30,41,59,0.95) 0%, rgba(30,41,59,0.65) 50%, rgba(30,41,59,0.3) 100%)" }} />
+
+        {/* Hero content over photo */}
         <div
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            padding: "3.5rem 1.5rem",
+            padding: "4rem 1.5rem 5rem",
+            width: "100%",
+            position: "relative",
           }}
         >
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "3rem",
-              alignItems: "center",
+              maxWidth: "660px",
             }}
           >
-            <div>
-              <div
+            <div
+              style={{
+                display: "inline-flex",
+                background: "#F59E0B",
+                color: "#1E293B",
+                fontWeight: 800,
+                fontSize: "0.75rem",
+                padding: "0.375rem 0.75rem",
+                borderRadius: "4px",
+                marginBottom: "1.5rem",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+              }}
+            >
+              🛠 Pune&apos;s Home Service Pros
+            </div>
+            <h1
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                fontWeight: 900,
+                lineHeight: 1.1,
+                color: "white",
+                letterSpacing: "-0.03em",
+                marginBottom: "1.25rem",
+              }}
+            >
+              Home Problems Fixed.
+              <br />
+              <span style={{ color: "#F59E0B" }}>Fast. Fairly Priced.</span>
+            </h1>
+            <p
+              style={{
+                fontSize: "1rem",
+                lineHeight: 1.7,
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "2rem",
+                maxWidth: "480px",
+              }}
+            >
+              AC repair, plumbing, electrical, deep cleaning and more — verified technicians
+              across Pune. Check slot availability when you call.
+            </p>
+            <div style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap" }}>
+              <a
+                href="#contact"
                 style={{
-                  display: "inline-flex",
+                  padding: "0.9375rem 2rem",
                   background: "#F59E0B",
                   color: "#1E293B",
                   fontWeight: 800,
-                  fontSize: "0.75rem",
-                  padding: "0.375rem 0.75rem",
-                  borderRadius: "4px",
-                  marginBottom: "1.5rem",
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase",
-                }}
-              >
-                🛠 Pune&apos;s Home Service Pros
-              </div>
-              <h1
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                  fontWeight: 900,
-                  lineHeight: 1.1,
-                  color: "white",
-                  letterSpacing: "-0.03em",
-                  marginBottom: "1.25rem",
-                }}
-              >
-                Home Problems Fixed.
-                <br />
-                <span style={{ color: "#F59E0B" }}>Fast. Fairly Priced.</span>
-              </h1>
-              <p
-                style={{
+                  borderRadius: "8px",
+                  textDecoration: "none",
                   fontSize: "1rem",
-                  lineHeight: 1.7,
-                  color: "rgba(255,255,255,0.65)",
-                  marginBottom: "2rem",
-                  maxWidth: "440px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
                 }}
               >
-                AC repair, plumbing, electrical, deep cleaning and more — verified technicians
-                across Pune. Check slot availability when you call.
-              </p>
-              <div style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap" }}>
-                <a
-                  href="#contact"
-                  style={{
-                    padding: "0.9375rem 2rem",
-                    background: "#F59E0B",
-                    color: "#1E293B",
-                    fontWeight: 800,
-                    borderRadius: "8px",
-                    textDecoration: "none",
-                    fontSize: "1rem",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                  }}
-                >
-                  📞 Get Free Estimate
-                </a>
-                <a
-                  href="#contact"
-                  style={{
-                    padding: "0.9375rem 2rem",
-                    background: "#25D366",
-                    color: "white",
+                📞 Get Free Estimate
+              </a>
+              <a
+                href="#contact"
+                style={{
+                  padding: "0.9375rem 2rem",
+                  background: "#25D366",
+                  color: "white",
                     fontWeight: 700,
                     borderRadius: "8px",
                     textDecoration: "none",
@@ -267,42 +271,6 @@ export default function HomeServicesPage() {
                   WhatsApp Enquiry
                 </a>
               </div>
-            </div>
-
-            {/* Quick service selector */}
-            <div
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "16px",
-                padding: "1.5rem",
-              }}
-            >
-              <div style={{ fontSize: "0.6875rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#94A3B8", marginBottom: "1rem" }}>
-                Popular Services
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.625rem" }}>
-                {services.filter(s => s.badge === "Popular" || ["AC Service & Repair", "Plumbing", "Electrical Work", "Deep Cleaning"].includes(s.name)).slice(0, 6).map((s) => (
-                  <div
-                    key={s.name}
-                    style={{
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      borderRadius: "8px",
-                      padding: "0.875rem",
-                      position: "relative",
-                    }}
-                  >
-                    {s.badge && (
-                      <div style={{ position: "absolute", top: "-8px", right: "8px", background: "#F59E0B", color: "#1E293B", fontSize: "0.5625rem", fontWeight: 800, padding: "1px 6px", borderRadius: "3px" }}>
-                        {s.badge}
-                      </div>
-                    )}
-                    <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "white" }}>{s.name}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 

@@ -16,10 +16,18 @@ export const metadata: Metadata = {
 };
 
 const projects = [
-  { name: "Whitefield Residence", type: "Residential", scope: "4BHK Full Interior", year: "2024", accent: "#B8A082", bg: "#F5EFE6" },
-  { name: "Brigade Gateway Office", type: "Commercial", scope: "Corporate Workspace", year: "2024", accent: "#8B7D6B", bg: "#EDE8E1" },
-  { name: "Koramangala Studio Apartment", type: "Residential", scope: "Compact Living", year: "2023", accent: "#A09070", bg: "#F0EAE0" },
-  { name: "Indiranagar Café", type: "Hospitality", scope: "F&B Interior", year: "2023", accent: "#7A6858", bg: "#E8E0D6" },
+  { name: "Whitefield Residence", type: "Residential", scope: "4BHK Full Interior", year: "2024", accent: "#B8A082", bg: "#F5EFE6",
+    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Modern Indian living room with warm tones and wooden accents" },
+  { name: "Brigade Gateway Office", type: "Commercial", scope: "Corporate Workspace", year: "2024", accent: "#8B7D6B", bg: "#EDE8E1",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Contemporary open-plan office workspace with natural light" },
+  { name: "Koramangala Studio Apartment", type: "Residential", scope: "Compact Living", year: "2023", accent: "#A09070", bg: "#F0EAE0",
+    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Minimalist apartment interior with smart space planning" },
+  { name: "Indiranagar Café", type: "Hospitality", scope: "F&B Interior", year: "2023", accent: "#7A6858", bg: "#E8E0D6",
+    img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Warm café interior with exposed brick and ambient lighting" },
 ];
 
 const services = [
@@ -113,13 +121,16 @@ export default function InteriorDesignPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
             {projects.map((project, i) => (
               <div key={project.name} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5px", background: "#DDD5C8" }}>
-                <div style={{ order: i % 2 === 0 ? 0 : 1, background: project.bg, aspectRatio: "16/9", minHeight: "240px", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0 }}>
-                    <div style={{ position: "absolute", top: "33%", left: "1.5rem", right: "1.5rem", height: "1px", background: `${project.accent}40` }} />
-                    <div style={{ position: "absolute", left: "40%", top: "1.5rem", bottom: "1.5rem", width: "1px", background: `${project.accent}30` }} />
-                    <div style={{ position: "absolute", inset: "1.5rem", border: `1px solid ${project.accent}25` }} />
-                  </div>
-                  <div style={{ position: "absolute", top: "1.25rem", right: "1.25rem", fontFamily: "system-ui, sans-serif", fontSize: "0.6875rem", letterSpacing: "0.15em", textTransform: "uppercase", color: project.accent, background: `${project.bg}cc`, padding: "0.25rem 0.625rem" }}>
+                <div style={{ order: i % 2 === 0 ? 0 : 1, aspectRatio: "16/9", minHeight: "240px", position: "relative", overflow: "hidden" }}>
+                  <Image
+                    src={project.img}
+                    alt={project.imgAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "rgba(43,34,22,0.3)" }} />
+                  <div style={{ position: "absolute", top: "1.25rem", right: "1.25rem", fontFamily: "system-ui, sans-serif", fontSize: "0.6875rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.9)", background: "rgba(43,34,22,0.55)", padding: "0.25rem 0.625rem", backdropFilter: "blur(4px)" }}>
                     {project.type}
                   </div>
                 </div>

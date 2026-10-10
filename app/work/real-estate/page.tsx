@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -25,6 +26,8 @@ const projects = [
     highlight: "Surrounded by 2 acres of landscaped greens. Rooftop infinity pool and resident sky lounge.",
     bg: "linear-gradient(135deg, #0F1F2E 0%, #162A3A 100%)",
     accent: "#4A9B8F",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Modern premium residential tower with landscaped surroundings",
   },
   {
     id: "the-arc",
@@ -40,11 +43,13 @@ const projects = [
     highlight: "Curved tower with panoramic city views. Dedicated work-from-home suites in every home.",
     bg: "linear-gradient(135deg, #1A1A2E 0%, #242440 100%)",
     accent: "#8B8BE8",
+    img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Contemporary architectural apartment building with glass facade",
   },
   {
     id: "palmeira",
     name: "Palmeira",
-    tagline: "Goa's most anticipated address",
+    tagline: "Goa’s most anticipated address",
     location: "Porvorim, Goa",
     status: "Pre-Launch",
     statusColor: "#E87A40",
@@ -55,6 +60,8 @@ const projects = [
     highlight: "Private plunge pools. 800m from the beach. A development of only 36 private villas.",
     bg: "linear-gradient(135deg, #1A1208 0%, #2C1E0A 100%)",
     accent: "#D4A060",
+    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75&auto=format&fit=crop",
+    imgAlt: "Luxury coastal villa with pool and tropical landscaping",
   },
 ];
 
@@ -303,30 +310,31 @@ export default function RealEstatePage() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Visual panel */}
+                {/* Visual panel — architecture photo */}
                 <div
                   style={{
-                    background: project.bg,
+                    position: "relative",
                     padding: "3rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     order: index % 2 === 0 ? 0 : 1,
+                    overflow: "hidden",
                   }}
                 >
-                  {/* Architecture grid visual */}
-                  <div style={{ position: "relative", flex: 1 }}>
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`,
-                        backgroundSize: "40px 40px",
-                      }}
-                    />
-                    {/* Project name typographic block */}
-                    <div style={{ position: "relative", paddingTop: "2rem" }}>
-                      <div style={{ width: "24px", height: "2px", background: project.accent, marginBottom: "1.5rem" }} />
+                  {/* Architecture photo */}
+                  <Image
+                    src={project.img}
+                    alt={project.imgAlt}
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                  />
+                  {/* Dark overlay for legibility */}
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%)" }} />
+                  {/* Project name typographic block */}
+                  <div style={{ position: "relative", paddingTop: "2rem" }}>
+                    <div style={{ width: "24px", height: "2px", background: project.accent, marginBottom: "1.5rem" }} />
                       <h3
                         style={{
                           fontSize: "clamp(2rem, 4vw, 3.5rem)",
@@ -341,7 +349,6 @@ export default function RealEstatePage() {
                       </h3>
                       <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", fontStyle: "italic" }}>{project.tagline}</p>
                     </div>
-                  </div>
 
                   {/* Bottom info */}
                   <div>

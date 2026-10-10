@@ -133,7 +133,6 @@ export default function BeautySalonPage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          padding: "0",
           position: "relative",
           overflow: "hidden",
         }}

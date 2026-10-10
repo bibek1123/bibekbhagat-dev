@@ -30,7 +30,7 @@ export function Pricing() {
         <SectionHeading
           eyebrow="Pricing"
           title="Simple, Transparent Pricing"
-          subtitle="No hidden fees. No hourly billing. Fixed packages that deliver real business results."
+          subtitle="No hidden fees. No hourly billing. Fixed packages built around what small businesses actually need."
         />
 
         <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">

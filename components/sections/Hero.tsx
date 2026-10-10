@@ -150,10 +150,9 @@ export function Hero() {
               <div className="text-xs font-medium mt-0.5" style={{ color: "#6B7280" }}>starting price</div>
             </div>
 
-            {/* Floating "7 industries" badge */}
             <div className="absolute -bottom-3 -right-2 sm:-right-6 bg-indigo-600 text-white rounded-xl shadow-lg px-3 py-2 sm:px-4 sm:py-3">
-              <div className="text-sm font-bold">7 Industries</div>
-              <div className="text-xs opacity-80 mt-0.5">View showcase →</div>
+              <div className="text-sm font-bold">10 Projects</div>
+              <div className="text-xs opacity-80 mt-0.5">View portfolio →</div>
             </div>
           </div>
         </div>
