@@ -1,0 +1,86 @@
+import type { Metadata } from "next";
+import { Header } from "@/components/sections/Header";
+import { Hero } from "@/components/sections/Hero";
+import { OurWork } from "@/components/sections/OurWork";
+import { Services } from "@/components/sections/Services";
+import { Pricing } from "@/components/sections/Pricing";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { About } from "@/components/sections/About";
+import { FAQ } from "@/components/sections/FAQ";
+import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Footer } from "@/components/sections/Footer";
+import { MobileWhatsAppBar } from "@/components/sections/MobileWhatsAppBar";
+import { siteConfig } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: `${siteConfig.name} — Professional Websites for Indian Businesses`,
+  description: siteConfig.description,
+  alternates: {
+    canonical: siteConfig.url,
+  },
+};
+
+// Structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteConfig.url}/#service`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      serviceType: "Website Development",
+      areaServed: {
+        "@type": "Country",
+        name: "India",
+      },
+      priceRange: "₹6,999 – ₹12,999",
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: "Bibek Bhagat",
+      url: siteConfig.url,
+      jobTitle: "Full-Stack Web Developer",
+      knowsAbout: [
+        "Web Development",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Business Website Design",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+    },
+  ],
+};
+
+export default function HomePage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <Header />
+      <main id="main-content">
+        <Hero />
+        <OurWork />
+        <Services />
+        <Pricing />
+        <HowItWorks />
+        <About />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
+      <MobileWhatsAppBar />
+    </>
+  );
+}
