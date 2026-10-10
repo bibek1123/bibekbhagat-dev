@@ -72,6 +72,7 @@ export const pricingPackages: PricingPackage[] = [
 export const pricingNotes = [
   "50% advance to start. Remaining 50% before launch.",
   "Domain registration, paid hosting, premium assets, and functionality outside the package scope may cost extra.",
+  "E-commerce, online store, payment gateway, booking systems, and custom functionality are quoted separately — not included in Starter or Business.",
   "All prices are quoted in Indian Rupees (₹).",
 ];
 
