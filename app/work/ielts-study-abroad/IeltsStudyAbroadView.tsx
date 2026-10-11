@@ -97,7 +97,7 @@ export function IeltsStudyAbroadView() {
 
       {/* ── INTAKES ANNOUNCEMENT ── */}
       <div className="bg-[#1E3A8A] text-white text-xs font-semibold py-2 px-4 text-center">
-        <span>🎓 Fall & Spring Admissions Open · Ludhiana Campus & Online Batches · Comprehensive Profile Evaluations</span>
+        <span>🎓 Showcase Spec · Study Abroad Advisory & Test Prep Concept · Ludhiana & Online</span>
       </div>
 
       {/* ── HEADER ── */}
@@ -113,7 +113,7 @@ export function IeltsStudyAbroadView() {
                   ARISE GLOBAL<span className="text-[#F59E0B]">.</span>
                 </span>
                 <span className="text-[10px] font-semibold tracking-wider text-[#64748B] uppercase block mt-0.5">
-                  IELTS Academy & Study Abroad · Ludhiana
+                  Showcase Institute · Test Prep & Study Advisory
                 </span>
               </Link>
             </div>
@@ -162,7 +162,7 @@ export function IeltsStudyAbroadView() {
             {/* Left Copy */}
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 bg-[#F59E0B]/20 border border-[#F59E0B]/30 rounded-full px-3.5 py-1 text-[#F59E0B] text-xs font-bold tracking-wider uppercase mb-5">
-                <span>✦</span> Ludhiana&apos;s Premier Global Pathway
+                <span>✦</span> Study Abroad & Test Prep Concept
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6">
@@ -343,7 +343,7 @@ export function IeltsStudyAbroadView() {
               Test Preparation Academy
             </h2>
             <p className="text-sm text-[#475569] mt-2">
-              Structured modular training engineered to achieve the exact band requirements demanded by foreign high commissions and admissions committees.
+              Structured modular curriculum designed to build proficiency for international admissions and language benchmark requirements.
             </p>
 
             <div className="inline-flex p-1 bg-white rounded-xl border border-[#CBD5E1] mt-6">
@@ -370,22 +370,22 @@ export function IeltsStudyAbroadView() {
               {[
                 {
                   module: "Listening Module",
-                  target: "Band 8.0+ Target",
+                  target: "Comprehensive Listening Curriculum",
                   desc: "Mastery of varied international accents (British, Australian, North American) with audio prediction techniques.",
                 },
                 {
                   module: "Reading Module",
-                  target: "Band 7.5+ Target",
+                  target: "Academic Reading Methodology",
                   desc: "Skimming, scanning, and identifying True/False/Not Given patterns across complex academic research texts.",
                 },
                 {
                   module: "Writing (Task 1 & 2)",
-                  target: "Band 7.0+ Target",
+                  target: "Structured Writing Framework",
                   desc: "Grammar cohesion, academic vocabulary, data trend analysis for graphs, and high-scoring essay thesis structures.",
                 },
                 {
                   module: "Speaking Rehearsals",
-                  target: "Band 7.5+ Target",
+                  target: "Interactive Speaking Practice",
                   desc: "One-on-one simulated examiner interviews with live audio playback review to eliminate hesitations and fillers.",
                 },
               ].map((m) => (
@@ -405,10 +405,10 @@ export function IeltsStudyAbroadView() {
 
           {activeExam === "pte" && (
             <div className="bg-white p-8 rounded-2xl border border-[#CBD5E1] shadow-sm max-w-3xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#F59E0B]">AI Test Simulation</span>
-              <h3 className="text-2xl font-black text-[#0F172A] mt-1 mb-3">PTE Academic 79+ Intensive Program</h3>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#F59E0B]">Computer-Delivered Testing</span>
+              <h3 className="text-2xl font-black text-[#0F172A] mt-1 mb-3">PTE Academic Intensive Program</h3>
               <p className="text-sm text-[#475569] leading-relaxed mb-6">
-                Our computer labs utilize Pearson-grade automated speech recognition models. Students receive instant algorithmic feedback on oral fluency, pronunciation pitch, and repeat-sentence accuracy.
+                Computer-delivered mock tests aligned with standard test formats. Students practice with structured diagnostic analysis for oral fluency, pronunciation rhythm, and repeat-sentence accuracy.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div className="bg-[#F8FAFC] p-3.5 rounded-xl border border-[#E2E8F0] text-center">
@@ -439,7 +439,7 @@ export function IeltsStudyAbroadView() {
           {activeExam === "toefl" && (
             <div className="bg-white p-8 rounded-2xl border border-[#CBD5E1] shadow-sm max-w-3xl">
               <span className="text-xs font-bold uppercase tracking-wider text-[#F59E0B]">American & Global Standard</span>
-              <h3 className="text-2xl font-black text-[#0F172A] mt-1 mb-3">TOEFL iBT 100+ Preparation</h3>
+              <h3 className="text-2xl font-black text-[#0F172A] mt-1 mb-3">TOEFL iBT Comprehensive Preparation</h3>
               <p className="text-sm text-[#475569] leading-relaxed mb-6">
                 Optimized for US university admissions and international scholarships requiring rigorous academic integrated tasks. Focus on campus conversation comprehension and integrated writing syntheses.
               </p>
@@ -494,8 +494,8 @@ export function IeltsStudyAbroadView() {
               },
               {
                 step: "05",
-                title: "Visa Filing & Pre-Departure",
-                desc: "Biometrics coordination, medical check booking, foreign currency card & housing guidance.",
+                title: "Documentation & Pre-Departure",
+                desc: "Checklist guidance for visa application readiness, housing resources, and pre-departure briefings.",
               },
             ].map((s) => (
               <div key={s.step} className="bg-[#F8FAFC] p-6 rounded-2xl border border-[#E2E8F0] relative flex flex-col justify-between">
@@ -520,7 +520,7 @@ export function IeltsStudyAbroadView() {
                 Book a Free 1-on-1 Profile Assessment
               </h2>
               <p className="text-xs sm:text-sm text-[#64748B] mt-2">
-                Meet our senior study-abroad advisors at the Ludhiana campus or request an online video consultation.
+                Sample advising consultation interface. Explore academic requirements and university selection criteria.
               </p>
             </div>
 
@@ -669,9 +669,9 @@ export function IeltsStudyAbroadView() {
               </p>
             </div>
             <div>
-              <p className="text-white font-bold uppercase tracking-wider mb-2">Campus Hours</p>
+              <p className="text-white font-bold uppercase tracking-wider mb-2">Advisory Schedule (Sample)</p>
               <p className="text-[#64748B]">Monday to Saturday: 9:00 AM – 6:30 PM</p>
-              <p className="text-[#64748B]">Ferozepur Road, Ludhiana, Punjab</p>
+              <p className="text-[#64748B]">Showcase Concept · Ludhiana, Punjab</p>
             </div>
             <div>
               <p className="text-white font-bold uppercase tracking-wider mb-2">Portfolio Notice</p>
@@ -700,10 +700,10 @@ export function IeltsStudyAbroadView() {
             >
               ✕
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A]">Quick Consultation</span>
-            <h3 className="text-xl font-black text-[#0F172A] mt-1 mb-2">Book Free Counselling</h3>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#1E3A8A]">Showcase Advising Flow</span>
+            <h3 className="text-xl font-black text-[#0F172A] mt-1 mb-2">Student Profile Evaluation</h3>
             <p className="text-xs text-[#64748B] mb-5">
-              Ludhiana Campus or Online Video Assessment.
+              Sample profile evaluation request for international study programs.
             </p>
             <div className="space-y-3.5">
               <input

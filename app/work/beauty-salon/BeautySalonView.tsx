@@ -200,7 +200,7 @@ export function BeautySalonView() {
 
       {/* ── LOCATION & RESERVATION BANNER ── */}
       <div className="bg-[#1A1412] text-[#C8A97A] text-xs font-semibold py-2 px-4 text-center border-b border-[#2D2420]">
-        <span>✦ Horizon Plaza, Golf Course Road, Gurugram · By Prior Appointment Only · Tuesday to Sunday</span>
+        <span>✦ Showcase Studio Concept · Hair Couture &amp; Skin Aesthetics · Gurugram</span>
       </div>
 
       {/* ── HIGH-FASHION EDITORIAL HEADER ── */}
@@ -212,7 +212,7 @@ export function BeautySalonView() {
                 VELVET ROOM
               </span>
               <span className="text-[9px] font-mono tracking-[0.35em] text-[#C8A97A] uppercase block mt-1">
-                Studio · Gurugram
+                Showcase Studio · Gurugram
               </span>
             </Link>
           </div>
@@ -270,7 +270,7 @@ export function BeautySalonView() {
             </h1>
 
             <p className="text-sm sm:text-base text-[#D4C8B8] leading-relaxed max-w-xl mb-8">
-              An intimate sanctuary at Horizon Plaza, Gurugram. Where master colorists and aesthetic specialists tailor every cut, dimensional balayage, and dermal infusion to your individuality.
+              An intimate salon and aesthetic lounge concept. Where master colorists and aesthetic specialists tailor every cut, dimensional balayage, and dermal infusion to your individuality.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -293,11 +293,11 @@ export function BeautySalonView() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/15 text-xs">
             <div>
               <p className="text-[#C8A97A] font-mono uppercase tracking-widest text-[11px]">Location</p>
-              <p className="text-white font-medium mt-1">Golf Course Road, Gurugram</p>
+              <p className="text-white font-medium mt-1">Showcase Concept · Gurugram</p>
             </div>
             <div>
-              <p className="text-[#C8A97A] font-mono uppercase tracking-widest text-[11px]">Format</p>
-              <p className="text-white font-medium mt-1">Private VIP Styling Pods</p>
+              <p className="text-[#C8A97A] font-mono uppercase tracking-widest text-[11px]">Atmosphere</p>
+              <p className="text-white font-medium mt-1">Private Styling Suites</p>
             </div>
             <div>
               <p className="text-[#C8A97A] font-mono uppercase tracking-widest text-[11px]">Color Systems</p>
@@ -322,7 +322,7 @@ export function BeautySalonView() {
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-[#A8988B] max-w-md">
-              A glimpse into signature transformations crafted within our Gurugram studio — calibrated for high shine, natural movement, and low maintenance.
+              A glimpse into signature transformations envisioned for the studio lookbook — calibrated for high shine, natural movement, and low maintenance.
             </p>
           </div>
 
@@ -445,7 +445,7 @@ export function BeautySalonView() {
               },
               {
                 num: "03",
-                title: "Private Styling Pods",
+                title: "Private Styling Suites",
                 desc: "Dedicated personal stations with acoustic separation and personalized lighting for unhurried comfort and complete discretion.",
               },
               {
@@ -479,7 +479,7 @@ export function BeautySalonView() {
                 Reserve Your Studio Appointment
               </h2>
               <p className="text-xs text-[#A8988B] mt-2">
-                Horizon Plaza, Golf Course Road, Gurugram. Please submit your preferred day and treatment.
+                Sample salon reservation interface. Select your preferred day and treatment to preview the flow.
               </p>
             </div>
 
@@ -594,9 +594,9 @@ export function BeautySalonView() {
               </p>
             </div>
             <div>
-              <p className="text-white font-mono uppercase tracking-wider mb-2">Studio Hours</p>
+              <p className="text-white font-mono uppercase tracking-wider mb-2">Studio Schedule (Sample)</p>
               <p className="text-[#73665C]">Tuesday to Sunday: 10:00 AM – 8:00 PM</p>
-              <p className="text-[#73665C]">Mondays: Closed for deep sanitisation.</p>
+              <p className="text-[#73665C]">Showcase Concept · Gurugram</p>
             </div>
             <div>
               <p className="text-white font-mono uppercase tracking-wider mb-2">Portfolio Notice</p>
@@ -625,10 +625,10 @@ export function BeautySalonView() {
             >
               ✕
             </button>
-            <span className="font-mono text-xs uppercase tracking-widest text-[#C8A97A]">Concierge Desk</span>
-            <h3 className="font-serif text-xl text-white mt-1 mb-2">Reserve an Appointment</h3>
+            <span className="font-mono text-xs uppercase tracking-widest text-[#C8A97A]">Showcase Reservation Flow</span>
+            <h3 className="font-serif text-xl text-white mt-1 mb-2">Reserve a Salon Experience</h3>
             <p className="text-xs text-[#8C7E73] mb-5">
-              Horizon Plaza, Golf Course Road, Gurugram.
+              Sample appointment booking interface for boutique luxury salons.
             </p>
             <div className="space-y-3.5">
               <input

@@ -10,8 +10,7 @@ interface Product {
   tagline: string;
   price: number;
   originalPrice: number;
-  rating: string;
-  reviewsCount: string;
+  textureTag: string;
   size: string;
   badge?: string;
   badgeBg?: string;
@@ -25,111 +24,105 @@ const products: Product[] = [
   {
     id: "vit-c-serum",
     name: "Radiance Dew 10% Vitamin C Serum",
-    tagline: "Brightens dark spots & defends against pollution without irritation.",
+    tagline: "Formulated with 10% ethyl ascorbic acid and ferulic acid for a fresh, daily glow.",
     price: 695,
     originalPrice: 849,
-    rating: "4.9",
-    reviewsCount: "1.2k",
+    textureTag: "Fast-Absorbing Fluid",
     size: "30 ml",
-    badge: "BESTSELLER",
+    badge: "POPULAR CURATION",
     badgeBg: "#D97706",
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["10% Ethyl Ascorbic Acid", "1% Ferulic Acid", "Kakadu Plum"],
+    keyActives: ["10% Ethyl Ascorbic Acid", "Ferulic Acid", "Botanical Plum Extract"],
     concern: "brightening",
     inStock: true,
   },
   {
     id: "ceramide-cream",
-    name: "BarrierLock Ceramide Deep Moisturizer",
-    tagline: "Rebuilds compromised skin barriers for 72-hour sustained hydration.",
+    name: "BarrierLock Ceramide Daily Moisturizer",
+    tagline: "Enriched with ceramides and oat extract to provide comfort and daily barrier moisture.",
     price: 545,
     originalPrice: 650,
-    rating: "4.8",
-    reviewsCount: "940",
+    textureTag: "Rich Emulsion",
     size: "50 g",
-    badge: "STAFF PICK",
+    badge: "DAILY ESSENTIAL",
     badgeBg: "#059669",
     image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["Ceramides NP, AP, EOP", "2% Oat Beta Glucan", "Centella"],
+    keyActives: ["Ceramides NP, AP, EOP", "Oat Beta Glucan", "Centella Extract"],
     concern: "barrier",
     inStock: true,
   },
   {
     id: "hybrid-sunscreen",
-    name: "Matte-Shield Ultralight Sunscreen SPF 50",
-    tagline: "Invisible sweat-proof protection with PA++++ and zero white cast.",
+    name: "Matte-Shield Ultralight Daily Sun Fluid",
+    tagline: "Lightweight, non-greasy daytime formula designed for daily wear without white cast.",
     price: 495,
     originalPrice: 599,
-    rating: "5.0",
-    reviewsCount: "2.1k",
+    textureTag: "Ultralight Fluid",
     size: "50 ml",
-    badge: "MOST LOVED",
+    badge: "DAILY SHIELD",
     badgeBg: "#E11D48",
     image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["Hybrid UV Filters", "1% Niacinamide", "Cica Extract"],
+    keyActives: ["Hybrid UV Filters", "Niacinamide", "Cica Extract"],
     concern: "sun",
     inStock: true,
   },
   {
     id: "salicylic-cleanser",
-    name: "Clarifying Gentle 1.5% BHA Gel Cleanser",
-    tagline: "Clears deep sebum and unclogs pores without post-wash tightness.",
+    name: "Clarifying Gentle Balancing Gel Cleanser",
+    tagline: "Cleanses surface oil and refreshes skin without a dry, tight after-feel.",
     price: 425,
     originalPrice: 499,
-    rating: "4.7",
-    reviewsCount: "810",
+    textureTag: "Gentle Gel",
     size: "120 ml",
-    badge: "NEW",
+    badge: "NEW RELEASE",
     badgeBg: "#7C3AED",
     image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["1.5% Encapsulated Salicylic", "Green Tea", "Panthenol"],
+    keyActives: ["Salicylic Acid", "Green Tea Extract", "Panthenol"],
     concern: "acne",
     inStock: true,
   },
   {
     id: "night-restoration-oil",
     name: "Midnight Botanical Elixir Oil",
-    tagline: "Replenishes lipid matrix overnight for plumper morning radiance.",
+    tagline: "Comforting facial oil blend designed for evening nourishment and a dewy morning finish.",
     price: 795,
     originalPrice: 950,
-    rating: "4.9",
-    reviewsCount: "620",
+    textureTag: "Botanical Oil",
     size: "30 ml",
     image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["Olive Squalane", "Cold-Pressed Rosehip", "CoQ10"],
+    keyActives: ["Olive Squalane", "Rosehip Seed Oil", "CoQ10 Blend"],
     concern: "barrier",
     inStock: true,
   },
   {
     id: "hyaluronic-essence",
     name: "HydroPlump Multi-Molecular Essence",
-    tagline: "Multi-depth hydration booster that quenches dehydrated pores.",
+    tagline: "Hydrating essence formulated with hyaluronic acid and plant sap for smooth hydration.",
     price: 585,
     originalPrice: 699,
-    rating: "4.8",
-    reviewsCount: "740",
+    textureTag: "Dewy Essence",
     size: "100 ml",
     image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=800&auto=format&fit=crop&q=80",
-    keyActives: ["4D Hyaluronic Acid", "Ectoin", "Birch Sap Juice"],
+    keyActives: ["Hyaluronic Acid Complex", "Ectoin", "Birch Sap Extract"],
     concern: "hydration",
     inStock: true,
   },
 ];
 
 const categories = [
-  { name: "Sun Protection", label: "SPF 50 PA++++", count: "3 Products", id: "sun", icon: "☀️" },
+  { name: "Sun Protection", label: "Daily Sun Fluid", count: "3 Products", id: "sun", icon: "☀️" },
   { name: "Barrier Repair", label: "Ceramide Care", count: "4 Products", id: "barrier", icon: "🛡️" },
-  { name: "Active Serums", label: "Targeted Glow", count: "6 Products", id: "brightening", icon: "✨" },
-  { name: "Daily Cleansers", label: "Non-Stripping", count: "3 Products", id: "acne", icon: "💧" },
-  { name: "Deep Hydration", label: "Multi-Molecule", count: "4 Products", id: "hydration", icon: "🌊" },
+  { name: "Active Serums", label: "Targeted Formulations", count: "6 Products", id: "brightening", icon: "✨" },
+  { name: "Daily Cleansers", label: "Gentle Cleansing", count: "3 Products", id: "acne", icon: "💧" },
+  { name: "Deep Hydration", label: "Hydration Essentials", count: "4 Products", id: "hydration", icon: "🌊" },
 ];
 
 const concerns = [
   { id: "all", label: "All Formulations" },
-  { id: "brightening", label: "Dark Spots & Dullness" },
-  { id: "barrier", label: "Damaged Barrier & Dryness" },
-  { id: "sun", label: "Sun Damage & Tan" },
-  { id: "acne", label: "Clogged Pores & Blemishes" },
+  { id: "brightening", label: "Radiance & Uneven Tone" },
+  { id: "barrier", label: "Dry & Sensitive Skin" },
+  { id: "sun", label: "Daytime Care" },
+  { id: "acne", label: "Pore & Oil Balance" },
 ];
 
 export function EcommerceView() {
@@ -200,11 +193,11 @@ export function EcommerceView() {
 
       {/* ── COMMERCE ANNOUNCEMENT BAR ── */}
       <div className="bg-[#E07A5F] text-white text-xs font-semibold py-2 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-3">
-        <span>✨ Monsoon Glow Offer: Flat ₹200 OFF on orders above ₹999</span>
+        <span>✨ Explore Skincare Essentials</span>
         <span className="opacity-40">|</span>
         <span className="bg-white/20 px-2 py-0.5 rounded text-[11px] tracking-widest font-mono">CODE: GLOW200</span>
         <span className="hidden sm:inline opacity-40">|</span>
-        <span className="hidden sm:inline">Free Shipping Pan-India</span>
+        <span className="hidden sm:inline">Complimentary Delivery on Orders Above ₹999</span>
       </div>
 
       {/* ── STICKY COMMERCE HEADER ── */}
@@ -224,7 +217,7 @@ export function EcommerceView() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 text-[13px] font-semibold text-[#54433E]">
               <a href="#bestsellers" className="hover:text-[#E07A5F] transition-colors">
-                Bestsellers
+                Featured Formulations
               </a>
               <a href="#categories" className="hover:text-[#E07A5F] transition-colors">
                 Shop By Category
@@ -249,7 +242,7 @@ export function EcommerceView() {
               </svg>
               <input
                 type="text"
-                placeholder="Search actives, SPF, serums..."
+                placeholder="Search actives, hydration, serums..."
                 className="bg-transparent text-xs text-[#201815] placeholder-[#8C7A74] outline-none w-36 lg:w-48"
                 readOnly
               />
@@ -301,17 +294,17 @@ export function EcommerceView() {
             <div className="lg:col-span-7 flex flex-col items-start z-10">
               <div className="inline-flex items-center gap-2 bg-[#E07A5F]/10 border border-[#E07A5F]/30 rounded-full px-3.5 py-1 text-[#E07A5F] text-xs font-bold tracking-wider uppercase mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E07A5F]" />
-                Next-Gen Indian Skin Science
+                Ingredient-Focused Skincare Concept
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1F1614] tracking-tight leading-[1.08] mb-6">
-                Active Formulas. <br />
-                <span className="text-[#E07A5F]">Zero Greasiness.</span> <br />
-                Engineered for Indian Skin.
+                Targeted Formulas. <br />
+                <span className="text-[#E07A5F]">Thoughtful Balance.</span> <br />
+                Formulated for Daily Care.
               </h1>
 
               <p className="text-[#64534E] text-base sm:text-lg leading-relaxed max-w-xl mb-8">
-                Clinically calibrated molecular actives formulated specifically for humid summers, dry winters, and high UV indices. Instant absorption, deep cellular hydration, and zero pore congestion.
+                Thoughtfully formulated skincare essentials designed for daily layering across warm and humid seasons. Lightweight textures, skin-friendly hydration, and balanced care.
               </p>
 
               {/* Action Buttons */}
@@ -320,7 +313,7 @@ export function EcommerceView() {
                   href="#bestsellers"
                   className="w-full sm:w-auto px-8 py-4 bg-[#1F1614] hover:bg-[#E07A5F] text-white text-sm font-bold tracking-wide uppercase rounded-xl transition-all duration-200 text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
                 >
-                  Shop Best Sellers →
+                  Explore Essentials →
                 </a>
                 <a
                   href="#routine"
@@ -333,10 +326,10 @@ export function EcommerceView() {
               {/* Trust Badges Bar */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-[#DCD3C7] w-full">
                 {[
-                  { title: "Non-Comedogenic", desc: "No pore-clogging waxes" },
-                  { title: "No Harsh Sulfates", desc: "Gentle on natural lipids" },
-                  { title: "Cruelty-Free", desc: "100% Vegan & Safe" },
-                  { title: "Climate Adaptive", desc: "Sweat & humidity proof" },
+                  { title: "Lightweight Textures", desc: "Fast-absorbing everyday layers" },
+                  { title: "Thoughtful Actives", desc: "Crafted for daily skin routines" },
+                  { title: "Balanced Formulations", desc: "Gentle on natural moisture" },
+                  { title: "All-Season Wear", desc: "Comfortable in humid climates" },
                 ].map((item) => (
                   <div key={item.title}>
                     <p className="text-xs font-bold text-[#1F1614] flex items-center gap-1.5">
@@ -366,18 +359,18 @@ export function EcommerceView() {
                       sizes="(max-width: 1024px) 100vw, 450px"
                     />
                     <div className="absolute top-4 left-4 bg-[#E07A5F] text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                      FEATURED HERO FORMULA
+                      FEATURED CURATION
                     </div>
                   </div>
 
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-amber-500 text-xs">★★★★★</span>
-                        <span className="text-[11px] font-semibold text-[#786660]">4.9 (1.2k+ Reviews)</span>
+                        <span className="text-xs font-semibold text-[#E07A5F]">Featured Curation</span>
+                        <span className="text-[11px] font-semibold text-[#786660]">· Lightweight Serum Texture</span>
                       </div>
                       <h3 className="text-lg font-bold text-[#1F1614]">Radiance Dew 10% Vitamin C</h3>
-                      <p className="text-xs text-[#6E5D57] mt-0.5">30ml · Ethyl Ascorbic Acid + Ferulic</p>
+                      <p className="text-xs text-[#6E5D57] mt-0.5">30ml · Ethyl Ascorbic Acid Blend</p>
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-black text-[#1F1614]">₹695</div>
@@ -449,10 +442,10 @@ export function EcommerceView() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.2em] text-[#E07A5F] uppercase mb-2">
-                <span>✦</span> Formulated For Real Results
+                <span>✦</span> Ingredient-Focused Formulations
               </div>
               <h2 className="text-3xl sm:text-4xl font-black text-[#1F1614] tracking-tight">
-                Bestselling Formulations
+                Featured Formulations
               </h2>
             </div>
 
@@ -513,10 +506,10 @@ export function EcommerceView() {
                     </div>
                   </div>
 
-                  {/* Rating */}
+                  {/* Texture Tag */}
                   <div className="flex items-center gap-1.5 text-xs text-[#8C7A74] mb-1.5">
-                    <span className="text-amber-500 font-bold">★ {p.rating}</span>
-                    <span>({p.reviewsCount} reviews)</span>
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E07A5F]" />
+                    <span className="text-[11px] font-medium text-[#786660]">{p.textureTag}</span>
                   </div>
 
                   {/* Title & Tagline */}
@@ -564,13 +557,13 @@ export function EcommerceView() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-bold tracking-[0.25em] text-[#E07A5F] uppercase">
-              Simplified Daily Regimen
+              Daily Regimen Concept
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#1F1614] tracking-tight mt-2">
-              The 3-Step Indian Climate Routine
+              The 3-Step Daily Routine
             </h2>
             <p className="text-sm text-[#6C5B55] mt-3">
-              You don&apos;t need 10 complicated steps. Three biocompatible layers formulated to withstand heat, sweat, and environmental stressors.
+              A balanced three-step sequence designed for easy daily layering: cleanse, nourish, and shield.
             </p>
 
             {/* Interactive Step Switcher */}
@@ -607,14 +600,14 @@ export function EcommerceView() {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold text-[#E07A5F] tracking-widest uppercase">Phase 01 · Morning & Evening</span>
-                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Cleanse Without Stripping Lipids</h3>
+                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Gentle Balancing Cleanser</h3>
                   <p className="text-sm text-[#6C5B55] leading-relaxed mb-4">
-                    Most Indian face washes use harsh sulfated surfactants that strip natural moisture, triggering compensatory oil production. Our BHA-infused gel balances pH at 5.5 while clearing urban particulate matter.
+                    Formulated to cleanse gently without a tight or dry after-feel. The lightweight gel texture washes clean while supporting balanced daily hygiene.
                   </p>
                   <ul className="text-xs text-[#52423D] space-y-2 mb-6">
-                    <li className="flex items-center gap-2">✓ Melts sebum without tightness or burning</li>
-                    <li className="flex items-center gap-2">✓ Calms visible post-sun redness with green tea</li>
-                    <li className="flex items-center gap-2">✓ Zero synthetic dyes or heavy fragrances</li>
+                    <li className="flex items-center gap-2">✓ Cleanses surface impurities comfortably</li>
+                    <li className="flex items-center gap-2">✓ Calming botanical feel with green tea</li>
+                    <li className="flex items-center gap-2">✓ Formulated without heavy fragrances</li>
                   </ul>
                   <button
                     onClick={() => addToCart(products[3])}
@@ -638,14 +631,14 @@ export function EcommerceView() {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold text-[#E07A5F] tracking-widest uppercase">Phase 02 · Treatment Layer</span>
-                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Targeted Cellular Radiance</h3>
+                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Targeted Radiance Serum</h3>
                   <p className="text-sm text-[#6C5B55] leading-relaxed mb-4">
-                    Deliver stable, non-oxidizing 10% Ethyl Ascorbic Acid directly into the dermal layer to fade hyperpigmentation, fade acne scars, and stimulate collagen synthesis.
+                    Features a 10% Ethyl Ascorbic Acid formula paired with ferulic acid to support a fresh, radiant look during daily wear.
                   </p>
                   <ul className="text-xs text-[#52423D] space-y-2 mb-6">
-                    <li className="flex items-center gap-2">✓ High-stability formula that won&apos;t turn brown</li>
-                    <li className="flex items-center gap-2">✓ Absorbs in 15 seconds with no sticky residue</li>
-                    <li className="flex items-center gap-2">✓ Ferulic acid stabilizes antioxidant potency</li>
+                    <li className="flex items-center gap-2">✓ Stable formula designed for daily morning use</li>
+                    <li className="flex items-center gap-2">✓ Absorbs smoothly with no sticky finish</li>
+                    <li className="flex items-center gap-2">✓ Complements daily daytime skin hydration</li>
                   </ul>
                   <button
                     onClick={() => addToCart(products[0])}
@@ -668,15 +661,15 @@ export function EcommerceView() {
                   />
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold text-[#E07A5F] tracking-widest uppercase">Phase 03 · Final Defense</span>
-                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Broad-Spectrum Matte Shield</h3>
+                  <span className="text-[11px] font-bold text-[#E07A5F] tracking-widest uppercase">Phase 03 · Daytime Shield</span>
+                  <h3 className="text-2xl font-black text-[#1F1614] mt-1 mb-3">Ultralight Daily Sun Fluid</h3>
                   <p className="text-sm text-[#6C5B55] leading-relaxed mb-4">
-                    High-protection broad spectrum SPF 50 PA++++ formulated to feel like a whisper on Indian skin tones. Tested to leave zero ghost-like white cast and zero greasy shine under makeup.
+                    Lightweight daytime fluid formulated to apply smoothly across skin tones. Designed to absorb quickly with a natural, non-greasy finish.
                   </p>
                   <ul className="text-xs text-[#52423D] space-y-2 mb-6">
-                    <li className="flex items-center gap-2">✓ Certified PA++++ against deep UVA photo-aging</li>
-                    <li className="flex items-center gap-2">✓ Sweat-resistant through tropical humidity</li>
-                    <li className="flex items-center gap-2">✓ Enriched with cica to prevent sun-induced heat flush</li>
+                    <li className="flex items-center gap-2">✓ Broad-spectrum daytime protection formula</li>
+                    <li className="flex items-center gap-2">✓ Comfortable feel during humid weather</li>
+                    <li className="flex items-center gap-2">✓ Enriched with cica extract for a soothing touch</li>
                   </ul>
                   <button
                     onClick={() => addToCart(products[2])}
@@ -695,12 +688,12 @@ export function EcommerceView() {
       <section id="ingredients" className="py-16 sm:py-24 bg-white border-b border-[#E8E2D9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <span className="text-xs font-bold tracking-[0.25em] text-[#E07A5F] uppercase">Biocompatible Science</span>
+            <span className="text-xs font-bold tracking-[0.25em] text-[#E07A5F] uppercase">Ingredient Profiles</span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#1F1614] tracking-tight mt-1">
-              What Goes In. Why It Works.
+              Understanding Key Ingredients
             </h2>
             <p className="text-sm text-[#6E5E58] mt-2">
-              Every percentage is disclosed. We combine bio-fermented botanical soothing agents with high-performance laboratory actives.
+              A closer look at key skincare ingredients, highlighting their source and purpose in daily skincare formulations.
             </p>
           </div>
 
@@ -708,27 +701,27 @@ export function EcommerceView() {
             {[
               {
                 active: "Ethyl Ascorbic Acid (10%)",
-                purpose: "Targeted Melanocyte Regulation",
-                desc: "An ultra-stable etherified derivative that converts directly to L-Ascorbic Acid inside the skin without oxidizing in the bottle.",
-                origin: "Biotechnology Ferment",
+                purpose: "Antioxidant Care",
+                desc: "An etherified vitamin C derivative designed to remain stable in formulation and support daily skin radiance.",
+                origin: "Specialized Active",
               },
               {
                 active: "Ceramide Complex (NP, AP, EOP)",
-                purpose: "Stratum Corneum Lipid Cement",
-                desc: "Identical to human intercellular lipids to replenish structural lipids lost to aggressive weather and hard water.",
-                origin: "Plant-Derived Phytosphingosines",
+                purpose: "Moisture Barrier Care",
+                desc: "A blend of essential ceramides designed to help replenish natural skin hydration and comfort dry surfaces.",
+                origin: "Plant-Derived Lipid Complex",
               },
               {
                 active: "Centella Asiatica (Cica)",
-                purpose: "Anti-Inflammatory Barrier Rescue",
-                desc: "Rich in madecassoside to rapidly soothe irritation, sunburns, and flare-ups caused by pollution and humidity.",
-                origin: "Botanical Extract · Western Ghats",
+                purpose: "Calming Botanical Support",
+                desc: "Rich in madecassoside, known for providing a soothing sensation to skin exposed to sun, wind, and city dust.",
+                origin: "Botanical Extract",
               },
               {
                 active: "Multi-Weight Hyaluronic (4D)",
-                purpose: "Multi-Depth Hydration Reservoir",
-                desc: "Four distinct molecular weights that hold up to 1,000x their weight in water across both epidermal and deep dermal planes.",
-                origin: "Bio-Fermented Yeast",
+                purpose: "Hydration Support",
+                desc: "Four molecular weights that attract and retain moisture across upper skin layers for a plumper surface feel.",
+                origin: "Bio-Fermented Humectant",
               },
             ].map((ing) => (
               <div key={ing.active} className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#EAE3D9] flex flex-col justify-between">
@@ -739,8 +732,8 @@ export function EcommerceView() {
                   <p className="text-xs text-[#63534D] leading-relaxed">{ing.desc}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#E8E1D6] flex items-center justify-between text-[11px] font-medium text-[#8C7B75]">
-                  <span>Transparency: 100%</span>
-                  <span className="text-[#10B981]">✓ Verified Safe</span>
+                  <span>Routine Phase: Daily Use</span>
+                  <span className="text-[#10B981]">✓ Balanced Profile</span>
                 </div>
               </div>
             ))}
@@ -758,7 +751,7 @@ export function EcommerceView() {
                 KAASNI<span className="text-[#E07A5F]">.</span>
               </span>
               <p className="text-xs text-[#B5A599] mt-3 max-w-sm leading-relaxed">
-                High-performance skincare co-formulated for Indian climate conditions. Honest percentages, zero fragrance hype, genuine skin transformation.
+                Ingredient-focused skincare concepts designed for modern daily routines. Thoughtful formulations, comfortable textures, and clean design.
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <span className="text-xs font-semibold text-white/80">Accepted Payments:</span>
@@ -846,8 +839,8 @@ export function EcommerceView() {
                 <div className="flex items-center justify-between text-xs font-semibold text-[#1F1614] mb-1.5">
                   <span>
                     {subtotal >= freeShippingThreshold
-                      ? "🎉 You unlocked FREE Pan-India Shipping!"
-                      : `Add ₹${freeShippingThreshold - subtotal} more for Free Shipping`}
+                      ? "Complimentary Delivery Threshold Reached (Demo)"
+                      : `Add ₹${freeShippingThreshold - subtotal} more for complimentary delivery (Demo)`}
                   </span>
                   <span>{progressToFreeShipping}%</span>
                 </div>
@@ -865,7 +858,7 @@ export function EcommerceView() {
                   <div className="py-16 text-center">
                     <p className="text-4xl mb-3">🛍️</p>
                     <p className="text-base font-bold text-[#1F1614]">Your bag is currently empty</p>
-                    <p className="text-xs text-[#7A6963] mt-1 mb-6">Discover our climate-tested skincare formulations.</p>
+                    <p className="text-xs text-[#7A6963] mt-1 mb-6">Discover our curated skincare essentials.</p>
                     <button
                       onClick={() => setCartOpen(false)}
                       className="px-6 py-2.5 bg-[#E07A5F] text-white text-xs font-bold uppercase rounded-xl"
@@ -943,7 +936,7 @@ export function EcommerceView() {
                     <span>Proceed to Checkout (Demo) →</span>
                   </button>
                   <p className="text-[10px] text-center text-[#9E8E88] mt-2.5">
-                    100% Secure Checkout · UPI, Credit/Debit Cards & Net Banking
+                    Interactive Demo Checkout · Concept Store Experience
                   </p>
                 </div>
               )}

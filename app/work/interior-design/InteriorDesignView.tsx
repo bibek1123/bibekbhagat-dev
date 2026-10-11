@@ -20,55 +20,55 @@ interface ProjectCase {
 const projects: ProjectCase[] = [
   {
     id: "whitefield-penthouse",
-    title: "The Whitefield Duplex Penthouse",
+    title: "Duplex Penthouse Concept",
     category: "residential",
-    location: "Whitefield, Bengaluru",
-    scope: "Full Interior Architecture & Turnkey Fit-Out",
-    area: "4,600 sq.ft",
-    year: "2024",
+    location: "Spatial Study · Bengaluru",
+    scope: "Architectural Interior & Joinery Concept",
+    area: "Duplex Study",
+    year: "Concept Spec",
     materials: ["Smoked European Oak", "Statuario Marble", "Aged Brass", "Lime Wash"],
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80",
     description:
-      "A serene double-height duplex balancing monumental Bengaluru light with tactile warmth. Monolithic stone islands, custom floating staircase joinery, and floor-to-ceiling slatted acoustic partitions.",
+      "A serene double-height duplex study balancing monumental daylight with tactile warmth. Monolithic stone islands, custom floating staircase joinery, and floor-to-ceiling slatted acoustic partitions.",
   },
   {
     id: "koramangala-villa",
-    title: "Koramangala Minimalist Villa",
+    title: "Modern Villa Concept",
     category: "residential",
-    location: "4th Block, Koramangala",
-    scope: "Bespoke Residence & Landscaped Atrium",
-    area: "5,800 sq.ft",
-    year: "2024",
+    location: "Courtyard Residence Study · Bengaluru",
+    scope: "Atrium Architecture & Interior Concept",
+    area: "Villa Study",
+    year: "Concept Spec",
     materials: ["Cast Concrete", "Teakwood Slats", "Fluted Glass", "Belgian Linen"],
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&auto=format&fit=crop&q=80",
     description:
-      "Sculptural restraint meets tropical modernism. An expansive open-plan ground floor wrapped around an internal courtyard, anchored by an integrated travertine dining console.",
+      "Sculptural restraint meets tropical modernism. An expansive open-plan layout wrapped around an internal courtyard, anchored by an integrated travertine dining console.",
   },
   {
     id: "indiranagar-culinary",
-    title: "Bespoke Kitchen & Dining Sanctuary",
+    title: "Bespoke Kitchen Concept",
     category: "residential",
-    location: "Indiranagar, Bengaluru",
-    scope: "Modular Chef Kitchen & Pantry Architecture",
-    area: "1,200 sq.ft",
-    year: "2023",
+    location: "Modular Kitchen Study · Bengaluru",
+    scope: "Chef Ergonomics & Cabinetry Concept",
+    area: "Kitchen Study",
+    year: "Concept Spec",
     materials: ["Fenix NTM Charcoal", "Nero Marquina", "Integrated LED", "Solid Walnut"],
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&auto=format&fit=crop&q=80",
     description:
-      "High-performance culinary ergonomics disguised in seamless architectural cabinetry. Motorized pocket doors, concealed prep zones, and a 10-seater cantilevered dining slab.",
+      "High-performance culinary ergonomics framed in seamless architectural cabinetry. Motorized pocket doors, concealed prep zones, and a cantilevered dining slab.",
   },
   {
     id: "lavelle-executive-suite",
-    title: "Lavelle Road Corporate Studio",
+    title: "Executive Studio Concept",
     category: "commercial",
-    location: "Lavelle Road, Central Bengaluru",
-    scope: "Executive Suite & Boardroom Architecture",
-    area: "3,400 sq.ft",
-    year: "2023",
+    location: "Workplace Architecture Study · Bengaluru",
+    scope: "Acoustic Workspace & Studio Concept",
+    area: "Studio Study",
+    year: "Concept Spec",
     materials: ["Acoustic Wool Felt", "Natural Ash", "Anodized Black Steel", "Leather"],
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80",
     description:
-      "Calm, distraction-free corporate environment engineered for strategic focus. Custom timber workstations, hidden cable routing, and sound-isolated acoustic meeting pods.",
+      "Calm, distraction-free corporate environment designed for strategic focus. Timber workstations, concealed cable routing, and sound-isolated acoustic meeting pods.",
   },
 ];
 
@@ -141,14 +141,14 @@ export function InteriorDesignView() {
                 ATELIER AURA
               </span>
               <span className="text-[9px] font-mono tracking-[0.3em] uppercase text-[#8A7E73] block -mt-1">
-                Studio · Bengaluru
+                Studio Concept · Bengaluru
               </span>
             </Link>
           </div>
 
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-[#574E45]">
             <a href="#projects" className="hover:text-[#C5A059] transition-colors">
-              Selected Works
+              Selected Concepts
             </a>
             <a href="#spaces" className="hover:text-[#C5A059] transition-colors">
               Spaces
@@ -190,7 +190,7 @@ export function InteriorDesignView() {
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24 pt-32 z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] uppercase text-[#C5A059] mb-4">
-              <span>✦</span> Interior Architecture & Turnkey Design
+              <span>✦</span> Interior Architecture & Design Concept
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal text-[#F8F6F0] tracking-tight leading-[1.05] mb-6">
@@ -200,7 +200,7 @@ export function InteriorDesignView() {
             </h1>
 
             <p className="text-sm sm:text-base text-[#D4C9BC] font-sans font-normal leading-relaxed max-w-xl mb-8">
-              We design and execute bespoke residences, duplex penthouses, and private commercial suites across Bengaluru. Grounded in timeless materiality, natural daylight, and precision joinery.
+              An architectural interior studio concept for bespoke residences, duplex penthouses, and private commercial suites. Grounded in timeless materiality, natural daylight, and precision joinery.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 font-sans">
@@ -208,7 +208,7 @@ export function InteriorDesignView() {
                 href="#projects"
                 className="px-8 py-3.5 bg-[#C5A059] hover:bg-[#b08d47] text-[#141211] text-xs font-bold uppercase tracking-widest transition-colors shadow-lg"
               >
-                Explore Works (2023–2024)
+                Explore Design Concepts
               </a>
               <button
                 onClick={() => setConsultationOpen(true)}
@@ -223,7 +223,7 @@ export function InteriorDesignView() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/15 font-sans">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#C5A059] font-mono">Location</p>
-              <p className="text-sm font-semibold text-white mt-1">Lavelle Road, Bengaluru</p>
+              <p className="text-sm font-semibold text-white mt-1">Studio Concept · Bengaluru</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-[#C5A059] font-mono">Discipline</p>
@@ -231,11 +231,11 @@ export function InteriorDesignView() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-[#C5A059] font-mono">Approach</p>
-              <p className="text-sm font-semibold text-white mt-1">Turnkey White-Glove</p>
+              <p className="text-sm font-semibold text-white mt-1">Design Architecture</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-[#C5A059] font-mono">Scope</p>
-              <p className="text-sm font-semibold text-white mt-1">Concept to Handover</p>
+              <p className="text-sm font-semibold text-white mt-1">Concept to Specification</p>
             </div>
           </div>
         </div>
@@ -282,16 +282,16 @@ export function InteriorDesignView() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 font-sans">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#C5A059]">Portfolio</span>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#C5A059]">Concepts</span>
               <h2 className="text-3xl sm:text-5xl font-serif font-normal text-[#1A1817] tracking-tight mt-1">
-                Selected Works
+                Selected Concepts
               </h2>
             </div>
 
             {/* Category Filter */}
             <div className="flex items-center gap-2">
               {[
-                { id: "all", label: "All Works" },
+                { id: "all", label: "All Concepts" },
                 { id: "residential", label: "Residential" },
                 { id: "commercial", label: "Commercial" },
               ].map((b) => (
@@ -382,7 +382,7 @@ export function InteriorDesignView() {
               Honest Materiality
             </h2>
             <p className="text-xs sm:text-sm text-[#A89E92] mt-3 leading-relaxed">
-              We specify natural, unadorned materials that gain patina rather than obsolescence. Sourced directly from certified quarries, timber mills, and artisanal joinery ateliers.
+              Curated natural materials selected for architectural longevity and tactile balance. Highlighting natural timbers, quarried stones, and artisan metal finishes.
             </p>
           </div>
 
@@ -453,7 +453,7 @@ export function InteriorDesignView() {
               {
                 step: "04",
                 title: "White-Glove Staging",
-                desc: "Installation of custom furniture, art curation, deep cleaning, and technical handover of lighting controls and warranties.",
+                desc: "Installation of custom furniture, art placement, detailed styling, and technical documentation of lighting controls.",
               },
             ].map((st) => (
               <div key={st.step} className="border-t border-[#1A1817] pt-6 flex flex-col justify-between">
@@ -476,7 +476,7 @@ export function InteriorDesignView() {
             Discuss Your Space
           </h2>
           <p className="text-sm text-[#665B50] max-w-lg mx-auto mb-10 leading-relaxed">
-            Whether embarking on a full residence architecture or a penthouse refurbishment, we invite you to an exploratory studio dialogue in Lavelle Road, Bengaluru.
+            Whether exploring a full residence architecture or a penthouse study, we invite you to explore project parameters through this interactive consultation planner.
           </p>
 
           <div className="bg-white p-8 sm:p-12 shadow-xl rounded-sm border border-[#D5CCBE] text-left">
@@ -485,7 +485,7 @@ export function InteriorDesignView() {
                 <span className="text-3xl mb-3 block">🏛️</span>
                 <h3 className="font-serif text-2xl text-[#1A1817] mb-2">Consultation Request Received</h3>
                 <p className="text-xs text-[#6B5F54] max-w-md mx-auto">
-                  Thank you for sharing your project parameters. In a live production environment, the Atelier principal architect will reach out within 24 hours.
+                  Thank you for sharing your project parameters. In a live production environment, the design team reviews spatial requirements and reaches out to schedule a consultation.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -582,13 +582,13 @@ export function InteriorDesignView() {
             <div>
               <span className="font-serif text-xl text-white block mb-2">ATELIER AURA</span>
               <p className="leading-relaxed text-[#8A7F73] max-w-xs">
-                Architectural interiors and turnkey execution based in Lavelle Road, Bengaluru. Crafted for those who appreciate restraint.
+                Architectural interior design showcase concept. Crafted for those who appreciate restraint.
               </p>
             </div>
             <div>
-              <p className="font-mono text-white uppercase tracking-wider mb-2">Studio Hours</p>
-              <p className="text-[#8A7F73]">Monday – Saturday: 10:00 AM – 7:00 PM</p>
-              <p className="text-[#8A7F73]">Consultations by prior appointment only.</p>
+              <p className="font-mono text-white uppercase tracking-wider mb-2">Studio Schedule</p>
+              <p className="text-[#8A7F73]">Consultation by prior appointment.</p>
+              <p className="text-[#8A7F73]">Studio Concept · Bengaluru</p>
             </div>
             <div>
               <p className="font-mono text-white uppercase tracking-wider mb-2">Portfolio Notice</p>
@@ -620,7 +620,7 @@ export function InteriorDesignView() {
             <span className="font-mono text-xs uppercase tracking-widest text-[#C5A059]">Atelier Aura</span>
             <h3 className="font-serif text-2xl text-[#1A1817] mt-1 mb-2">Private Studio Consultation</h3>
             <p className="text-xs text-[#6B5F54] mb-6 leading-relaxed">
-              We discuss spatial requirements, aesthetic direction, and project feasibility at our Lavelle Road studio.
+              Discuss spatial requirements, aesthetic direction, and feasibility through this showcase consultation interface.
             </p>
             <div className="space-y-4">
               <input

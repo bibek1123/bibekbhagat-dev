@@ -36,7 +36,7 @@ const treatments: Treatment[] = [
       "Biocompatible titanium fixtures surgically placed with computer-guided accuracy to fuse with natural jawbone. Crown restorations crafted from high-translucency monolithic zirconia.",
     duration: "Single surgical appointment + healing",
     recovery: "1–3 days mild rest",
-    highlights: ["Restores full 100% natural mastication", "Preserves adjacent healthy tooth enamel", "Lifelong structural durability"],
+    highlights: ["Supports balanced chewing function", "Preserves adjacent healthy tooth enamel", "Engineered with durable titanium materials"],
   },
   {
     id: "root-canal",
@@ -80,7 +80,7 @@ const treatments: Treatment[] = [
       "Ultrasonic cavitation combined with gentle glycine airflow powder lifts bio-film and tartar without scraping enamel surfaces. Concludes with fluoride varnish remineralization.",
     duration: "30–45 minutes",
     recovery: "Immediate refreshed feel",
-    highlights: ["Painless ultrasonic tartar removal", "Stain-lifting airflow glycine spray", "Comprehensive periodontal health audit"],
+    highlights: ["Gentle ultrasonic tartar removal", "Stain-lifting airflow glycine spray", "Comprehensive periodontal health audit"],
   },
 ];
 
@@ -117,7 +117,7 @@ export function DentalClinicView() {
 
       {/* ── PATIENT ASSURANCE BANNER ── */}
       <div className="bg-[#F0FDFA] border-b border-[#CCFBF1] text-[#0F766E] text-xs font-semibold py-2 px-4 text-center">
-        <span>📍 Sector 35-B, Chandigarh · Welcoming New Patients · 100% Class-B Autoclave Sterilisation Protocols</span>
+        <span>📍 Sector 35-B, Chandigarh · Consultation By Appointment · Hospital-Grade Instrument Sterilisation Protocols</span>
       </div>
 
       {/* ── CLINIC NAVIGATION ── */}
@@ -133,7 +133,7 @@ export function DentalClinicView() {
                   PureSmile<span className="text-[#0D7A8A]">Dental</span>
                 </span>
                 <span className="text-[10px] font-semibold tracking-wider text-[#64748B] uppercase block mt-0.5">
-                  Clinic · Sector 35-B, Chandigarh
+                  Showcase Clinic · Sector 35-B, Chandigarh
                 </span>
               </Link>
             </div>
@@ -202,9 +202,9 @@ export function DentalClinicView() {
               {/* Clinic Assurances Bar */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-[#E2E8F0]">
                 {[
-                  { title: "Zero Anxiety", desc: "Gentle pain-free care" },
+                  { title: "Patient Comfort", desc: "Gentle chairside care" },
                   { title: "3D Digital Scanning", desc: "No messy impression goop" },
-                  { title: "Hospital Sterilisation", desc: "Class B autoclave cycles" },
+                  { title: "Clinical Hygiene", desc: "Multistage autoclave cycles" },
                   { title: "Transparent Pricing", desc: "Clear itemized estimates" },
                 ].map((item) => (
                   <div key={item.title}>
@@ -343,7 +343,7 @@ export function DentalClinicView() {
               Rigorous Clinical Hygiene Protocols
             </h2>
             <p className="text-sm text-[#475569] mt-2">
-              We adhere strictly to medical hospital sterilisation guidelines to safeguard the health of every patient and staff member.
+              We follow structured clinical hygiene protocols and sterile instrument handling to prioritize patient health and safety.
             </p>
           </div>
 
@@ -351,8 +351,8 @@ export function DentalClinicView() {
             {[
               {
                 step: "01",
-                title: "Class-B Autoclave Sterilisation",
-                desc: "Medical vacuum autoclaves operate at 134°C under high pressure. All reusable handpieces are sealed in individual sterile pouches.",
+                title: "Multistage Autoclave Sterilisation",
+                desc: "Steam sterilization under monitored cycles. Reusable clinical instruments are sealed in individual sterile pouches prior to each appointment.",
               },
               {
                 step: "02",
@@ -377,7 +377,7 @@ export function DentalClinicView() {
                   <p className="text-xs text-[#475569] leading-relaxed">{std.desc}</p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-[#F1F5F9] text-[11px] font-semibold text-[#0D7A8A]">
-                  ✓ Verified Protocol
+                  ✓ Standard Protocol
                 </div>
               </div>
             ))}
@@ -413,7 +413,7 @@ export function DentalClinicView() {
               {
                 num: "3",
                 title: "Gentle Care at Your Pace",
-                desc: "You decide when and how to proceed. We pace appointments comfortably, ensuring you remain completely pain-free.",
+                desc: "You decide when and how to proceed. We pace appointments comfortably, prioritizing your relaxation and gentle care.",
               },
             ].map((st) => (
               <div key={st.num} className="bg-[#F8FAFC] p-8 rounded-2xl border border-[#E2E8F0] relative">
@@ -563,7 +563,7 @@ export function DentalClinicView() {
               },
               {
                 q: "What measures protect patients against clinical cross-contamination?",
-                a: "We employ strict multi-stage Class-B vacuum autoclave sterilisation, disposable barriers for all touchpoints, and individualized instrument trays opened in your presence.",
+                a: "We utilize multi-stage autoclave sterilization cycles, protective barrier films on clinical surfaces, and sanitized instrument sets prepared for each patient.",
               },
             ].map((faq) => (
               <div key={faq.q} className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC]">
@@ -586,9 +586,9 @@ export function DentalClinicView() {
               </p>
             </div>
             <div>
-              <p className="text-white font-bold uppercase tracking-wider mb-2">Clinic Hours</p>
+              <p className="text-white font-bold uppercase tracking-wider mb-2">Clinic Schedule (Sample)</p>
               <p className="text-[#64748B]">Monday to Saturday: 10:00 AM – 8:00 PM</p>
-              <p className="text-[#64748B]">Sundays: Consultation by prior appointment.</p>
+              <p className="text-[#64748B]">Showcase Concept · Sector 35-B, Chandigarh</p>
             </div>
             <div>
               <p className="text-white font-bold uppercase tracking-wider mb-2">Portfolio Notice</p>
@@ -617,10 +617,10 @@ export function DentalClinicView() {
             >
               ✕
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0D7A8A]">Quick Booking</span>
-            <h3 className="text-xl font-black text-[#0F172A] mt-1 mb-2">Book a Dental Visit</h3>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0D7A8A]">Showcase Appointment Flow</span>
+            <h3 className="text-xl font-black text-[#0F172A] mt-1 mb-2">Request a Dental Consultation</h3>
             <p className="text-xs text-[#64748B] mb-5">
-              Sector 35-B, Chandigarh. We will confirm your preferred timing.
+              Sample appointment booking interface for modern dental practices.
             </p>
             <div className="space-y-3.5">
               <input
