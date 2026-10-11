@@ -14,6 +14,7 @@ interface WhatsAppButtonProps {
   variant?: "default" | "starter" | "business" | "custom";
   message?: string;
   className?: string;
+  style?: React.CSSProperties;
   size?: "sm" | "md" | "lg";
   ctaLocation?: string;
   children?: React.ReactNode;
@@ -24,6 +25,7 @@ export function WhatsAppButton({
   variant = "default",
   message,
   className,
+  style,
   size = "md",
   ctaLocation,
   children,
@@ -60,16 +62,20 @@ export function WhatsAppButton({
     lg: "h-13 px-8 text-base gap-2.5",
   };
 
+  const hasCustomColors = Boolean(className && (className.includes("bg-") || className.includes("text-")));
+
   return (
     <Link
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
+      style={style}
       className={cn(
         "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200",
-        "bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-sm hover:shadow-md active:scale-[0.98]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]",
+        hasCustomColors
+          ? "shadow-sm hover:shadow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          : "bg-[#25D366] text-white hover:bg-[#1ebe5d] shadow-sm hover:shadow-md active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366]",
         sizes[size],
         className
       )}

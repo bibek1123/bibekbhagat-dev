@@ -1,21 +1,24 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { pricingPackages, pricingNotes } from "@/config/pricing";
 import { cn } from "@/lib/utils";
 
-const CheckIcon = () => (
+const CheckIcon = ({ highlighted }: { highlighted: boolean }) => (
   <svg
-    className="w-4 h-4 text-indigo-500 shrink-0"
-    fill="none"
+    width="15"
+    height="15"
     viewBox="0 0 24 24"
+    fill="none"
     stroke="currentColor"
-    strokeWidth={2.5}
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     aria-hidden="true"
+    style={{ flexShrink: 0, marginTop: "1px", color: highlighted ? "rgba(165,180,252,1)" : "#4F46E5" }}
   >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
@@ -23,91 +26,184 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="py-20 md:py-28 bg-white"
       aria-labelledby="pricing-heading"
+      style={{ background: "#ffffff", paddingTop: "5rem", paddingBottom: "5rem" }}
     >
       <Container>
-        <SectionHeading
-          eyebrow="Pricing"
-          title="Simple, Transparent Pricing"
-          subtitle="No hidden fees. No hourly billing. Fixed packages built around what small businesses actually need."
-        />
+        {/* Section intro */}
+        <div style={{ marginBottom: "3.5rem" }}>
+          <p
+            style={{
+              fontSize: "0.6875rem",
+              fontWeight: 700,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(0,0,0,0.35)",
+              marginBottom: "1rem",
+            }}
+          >
+            Pricing
+          </p>
+          <h2
+            id="pricing-heading"
+            style={{
+              fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)",
+              fontWeight: 900,
+              color: "#0D0D12",
+              letterSpacing: "-0.04em",
+              lineHeight: 1.05,
+              margin: 0,
+            }}
+          >
+            Simple, transparent pricing.
+          </h2>
+          <p
+            style={{
+              marginTop: "1rem",
+              fontSize: "1rem",
+              color: "#6B7280",
+              lineHeight: 1.7,
+              maxWidth: "480px",
+            }}
+          >
+            No hidden fees. No hourly billing. Fixed packages built around what
+            small businesses actually need.
+          </p>
+        </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {/* Pricing cards */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "1.5rem",
+            maxWidth: "800px",
+          }}
+          className="pricing-grid"
+        >
           {pricingPackages.map((pkg) => (
             <div
               key={pkg.id}
-              className={cn(
-                "relative rounded-2xl p-8 flex flex-col",
-                pkg.highlighted
-                  ? "bg-indigo-600 text-white shadow-2xl shadow-indigo-200/60 ring-2 ring-indigo-600"
-                  : "bg-white border border-gray-200 shadow-sm"
-              )}
+              style={{
+                position: "relative",
+                borderRadius: "12px",
+                padding: "2rem 2.25rem",
+                display: "flex",
+                flexDirection: "column",
+                ...(pkg.highlighted
+                  ? {
+                      background: "#1E1B4B",
+                      border: "none",
+                      boxShadow: "0 16px 48px rgba(30,27,75,0.28)",
+                    }
+                  : {
+                      background: "#ffffff",
+                      border: "1.5px solid #E5E7EB",
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                    }),
+              }}
             >
               {/* Badge */}
               {pkg.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-amber-400 text-amber-900 shadow-sm">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-12px",
+                    left: "2rem",
+                  }}
+                >
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      padding: "3px 10px",
+                      borderRadius: "999px",
+                      fontSize: "0.6875rem",
+                      fontWeight: 800,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      background: "#F59E0B",
+                      color: "#78350F",
+                    }}
+                  >
                     {pkg.badge}
                   </span>
                 </div>
               )}
 
-              {/* Header */}
-              <div className="mb-6">
-                <h3
-                  className={cn(
-                    "text-lg font-bold",
-                    pkg.highlighted ? "text-white" : "text-gray-900"
-                  )}
+              {/* Package header */}
+              <div style={{ marginBottom: "1.75rem" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    flexWrap: "wrap",
+                  }}
                 >
-                  {pkg.name}
-                </h3>
-                <div className="mt-3 flex items-baseline gap-1">
+                  <h3
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.01em",
+                      color: pkg.highlighted ? "rgba(165,180,252,0.9)" : "#6B7280",
+                      margin: 0,
+                    }}
+                  >
+                    {pkg.name}
+                  </h3>
                   <span
-                    className={cn(
-                      "text-4xl font-bold tracking-tight",
-                      pkg.highlighted ? "text-white" : "text-gray-900"
-                    )}
+                    style={{
+                      fontSize: "2.25rem",
+                      fontWeight: 900,
+                      letterSpacing: "-0.04em",
+                      color: pkg.highlighted ? "#ffffff" : "#0D0D12",
+                      lineHeight: 1,
+                    }}
                   >
                     {pkg.price}
                   </span>
                 </div>
                 <p
-                  className={cn(
-                    "mt-3 text-sm leading-relaxed",
-                    pkg.highlighted ? "text-indigo-200" : "text-gray-500"
-                  )}
+                  style={{
+                    marginTop: "0.75rem",
+                    fontSize: "0.9375rem",
+                    lineHeight: 1.6,
+                    color: pkg.highlighted ? "rgba(199,210,254,0.85)" : "#6B7280",
+                  }}
                 >
                   {pkg.description}
                 </p>
               </div>
 
               {/* Features */}
-              <ul className="space-y-3 flex-1 mb-8">
+              <ul
+                style={{
+                  margin: 0,
+                  padding: 0,
+                  listStyle: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.625rem",
+                  flex: 1,
+                  marginBottom: "2rem",
+                }}
+              >
                 {pkg.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-sm">
-                    {pkg.highlighted ? (
-                      <svg
-                        className="w-4 h-4 text-indigo-300 shrink-0 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    ) : (
-                      <CheckIcon />
-                    )}
-                    <span
-                      className={
-                        pkg.highlighted ? "text-indigo-100" : "text-gray-700"
-                      }
-                    >
-                      {feature}
-                    </span>
+                  <li
+                    key={feature}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.625rem",
+                      fontSize: "0.9375rem",
+                      color: pkg.highlighted ? "rgba(199,210,254,0.9)" : "#374151",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <CheckIcon highlighted={pkg.highlighted} />
+                    {feature}
                   </li>
                 ))}
               </ul>
@@ -119,10 +215,13 @@ export function Pricing() {
                 ctaLocation={`pricing_${pkg.id}`}
                 className={cn(
                   "w-full justify-center",
-                  pkg.highlighted
-                    ? "bg-white text-indigo-600 hover:bg-indigo-50"
-                    : ""
+                  pkg.highlighted ? "bg-white text-indigo-700 hover:bg-indigo-50 font-semibold" : ""
                 )}
+                style={
+                  pkg.highlighted
+                    ? { backgroundColor: "#ffffff", color: "#4338CA" }
+                    : undefined
+                }
               >
                 {pkg.cta}
               </WhatsAppButton>
@@ -130,21 +229,94 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Notes */}
-        <div className="mt-10 max-w-2xl mx-auto">
-          <ul className="space-y-2">
-            {pricingNotes.map((note, i) => (
+        {/* Payment terms + notes */}
+        <div
+          style={{
+            marginTop: "2.5rem",
+            maxWidth: "800px",
+            paddingTop: "1.75rem",
+            borderTop: "1px solid rgba(0,0,0,0.07)",
+          }}
+        >
+          {/* Payment terms — prominent */}
+          <div
+            style={{
+              display: "flex",
+              gap: "2rem",
+              flexWrap: "wrap",
+              marginBottom: "1.25rem",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontSize: "0.9375rem",
+                fontWeight: 700,
+                color: "#0D0D12",
+              }}
+            >
+              <span
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#4F46E5",
+                  flexShrink: 0,
+                }}
+              />
+              50% advance to start
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontSize: "0.9375rem",
+                fontWeight: 700,
+                color: "#0D0D12",
+              }}
+            >
+              <span
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: "#4F46E5",
+                  flexShrink: 0,
+                }}
+              />
+              50% before production launch
+            </div>
+          </div>
+
+          {/* Other notes — smaller */}
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.375rem" }}>
+            {pricingNotes.slice(1).map((note, i) => (
               <li
                 key={i}
-                className="flex items-start gap-2 text-sm text-gray-500"
+                style={{
+                  fontSize: "0.8125rem",
+                  color: "#9CA3AF",
+                  lineHeight: 1.6,
+                  paddingLeft: "0",
+                }}
               >
-                <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-gray-300 shrink-0" />
                 {note}
               </li>
             ))}
           </ul>
         </div>
       </Container>
+
+      <style>{`
+        @media (min-width: 640px) {
+          .pricing-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

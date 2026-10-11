@@ -4,44 +4,64 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export function FinalCTA() {
   return (
     <section
-      className="py-20 md:py-28 bg-indigo-600"
+      style={{
+        background: "#0F0E1A",
+        paddingTop: "6rem",
+        paddingBottom: "6rem",
+      }}
       aria-labelledby="final-cta-heading"
     >
       <Container>
-        <div className="max-w-2xl mx-auto text-center">
+        <div
+          style={{
+            maxWidth: "640px",
+          }}
+        >
           <h2
             id="final-cta-heading"
-            className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight"
+            style={{
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              fontWeight: 900,
+              color: "#ffffff",
+              letterSpacing: "-0.04em",
+              lineHeight: 1.05,
+              margin: 0,
+            }}
           >
-            Your Business Deserves a Professional Website
+            Ready to give your business
+            a more professional
+            online presence?
           </h2>
 
-          <p className="mt-5 text-lg text-indigo-200 leading-relaxed">
-            Get started from ₹6,999. Tell us about your business and we&apos;ll
-            help you choose the right package.
+          <p
+            style={{
+              marginTop: "1.5rem",
+              fontSize: "1.0625rem",
+              color: "rgba(255,255,255,0.55)",
+              lineHeight: 1.7,
+            }}
+          >
+            Websites starting from ₹6,999. Tell me about your business and
+            what you need. I&apos;ll help you choose the right approach.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div style={{ marginTop: "2.5rem", display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
             <WhatsAppButton
               size="lg"
               ctaLocation="final_cta"
-              className="bg-white text-indigo-600 hover:bg-indigo-50 w-full sm:w-auto"
-              showIcon={false}
             >
-              Get a Free Quote
+              Get a Free Quote →
             </WhatsAppButton>
-            <WhatsAppButton
-              size="lg"
-              ctaLocation="final_cta_wa"
-              className="w-full sm:w-auto"
+            <p
+              style={{
+                fontSize: "0.875rem",
+                color: "rgba(255,255,255,0.35)",
+                margin: 0,
+              }}
             >
-              Chat on WhatsApp
-            </WhatsAppButton>
+              No obligation. Direct conversation with the developer.
+            </p>
           </div>
-
-          <p className="mt-8 text-sm text-indigo-300">
-            No commitments. No contracts to sign upfront. Just a conversation.
-          </p>
         </div>
       </Container>
     </section>

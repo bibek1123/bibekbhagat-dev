@@ -5,158 +5,403 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
+// Small inline SVG icons — no emoji
+function CheckIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      style={{ flexShrink: 0 }}
+    >
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+  );
+}
+
+const trustSignals = [
+  { label: "Fast Delivery" },
+  { label: "Fixed Pricing" },
+  { label: "Mobile-First" },
+];
+
 export function Hero() {
   return (
     <section
-      className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden"
-      style={{ background: "#FAFAF8" }}
+      className="relative overflow-hidden"
+      style={{
+        background: "#FAFAF8",
+        paddingTop: "6rem",
+        paddingBottom: "5rem",
+      }}
       aria-labelledby="hero-heading"
     >
-      {/* Subtle background grid */}
+      {/* Very subtle grid — 1px lines only */}
       <div
-        className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
+          position: "absolute",
+          inset: 0,
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 90% 10%, rgba(99,102,241,0.06) 0%, transparent 60%)",
+            "linear-gradient(rgba(0,0,0,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.018) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          pointerEvents: "none",
         }}
       />
 
       <Container className="relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ── LEFT: Copy ── */}
-          <div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "3rem",
+            alignItems: "center",
+          }}
+          className="hero-grid"
+        >
+          {/* ── LEFT COLUMN ── */}
+          <div style={{ maxWidth: "540px" }}>
             {/* Price pill */}
             <div
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border mb-6"
-              style={{ background: "rgba(99,102,241,0.05)", borderColor: "rgba(99,102,241,0.18)" }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.375rem 0.875rem",
+                borderRadius: "999px",
+                border: "1px solid rgba(79,70,229,0.2)",
+                background: "rgba(79,70,229,0.04)",
+                marginBottom: "1.75rem",
+              }}
             >
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
-              <span className="text-sm font-semibold" style={{ color: "#4338CA" }}>
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: "#4F46E5",
+                  flexShrink: 0,
+                }}
+                aria-hidden="true"
+              />
+              <span
+                style={{
+                  fontSize: "0.8125rem",
+                  fontWeight: 700,
+                  color: "#3730A3",
+                  letterSpacing: "0.01em",
+                }}
+              >
                 Starting at ₹6,999
               </span>
             </div>
 
+            {/* H1 */}
             <h1
               id="hero-heading"
-              className="text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-black tracking-tight leading-[1.05]"
-              style={{ color: "#111118" }}
+              style={{
+                fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)",
+                fontWeight: 900,
+                color: "#0D0D12",
+                letterSpacing: "-0.04em",
+                lineHeight: 1.05,
+                margin: 0,
+              }}
             >
-              Professional Websites{" "}
+              Professional websites
+              <br />
+              that make your business
+              <br />
               <span
                 style={{
-                  background: "linear-gradient(135deg, #4338CA 0%, #6366F1 100%)",
+                  background: "linear-gradient(135deg, #3730A3 0%, #4F46E5 60%, #6366F1 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                for Indian Businesses
+                look established.
               </span>
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed max-w-lg" style={{ color: "#4B5563" }}>
-              Modern, mobile-friendly websites for startups, local businesses, and MSMEs —
-              professionally built without expensive agency pricing.
+            {/* Sub-copy */}
+            <p
+              style={{
+                marginTop: "1.5rem",
+                fontSize: "1.0625rem",
+                lineHeight: 1.75,
+                color: "#4B5563",
+                maxWidth: "480px",
+              }}
+            >
+              Modern, mobile-first websites for Indian businesses —
+              professionally designed without expensive agency pricing.
             </p>
 
             {/* Trust signals */}
-            <div className="flex flex-wrap gap-5 mt-7">
-              {[
-                { icon: "⚡", label: "Fast Delivery" },
-                { icon: "💰", label: "Fixed Pricing" },
-                { icon: "📱", label: "Mobile-First" },
-              ].map((signal) => (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "1.25rem",
+                marginTop: "1.75rem",
+              }}
+            >
+              {trustSignals.map((s) => (
                 <div
-                  key={signal.label}
-                  className="flex items-center gap-1.5 text-sm font-medium"
-                  style={{ color: "#374151" }}
+                  key={s.label}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "#374151",
+                  }}
                 >
-                  <span aria-hidden="true">{signal.icon}</span>
-                  {signal.label}
+                  <span
+                    style={{
+                      width: "18px",
+                      height: "18px",
+                      borderRadius: "50%",
+                      background: "rgba(79,70,229,0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#4F46E5",
+                    }}
+                  >
+                    <CheckIcon />
+                  </span>
+                  {s.label}
                 </div>
               ))}
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.75rem",
+                marginTop: "2rem",
+              }}
+            >
               <WhatsAppButton size="lg" ctaLocation="hero">
-                Get a Free Quote
+                Get a Free Quote →
               </WhatsAppButton>
               <Link
                 href="/#work"
-                className="inline-flex items-center justify-center px-7 text-base font-semibold border rounded-lg transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                style={{ height: "52px", color: "#111118", borderColor: "#D1D5DB", background: "white" }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "52px",
+                  padding: "0 1.75rem",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  color: "#374151",
+                  background: "transparent",
+                  border: "1.5px solid #D1D5DB",
+                  borderRadius: "8px",
+                  textDecoration: "none",
+                  transition: "border-color 0.15s, color 0.15s",
+                }}
+                className="hero-secondary-cta"
               >
                 View Our Work
               </Link>
             </div>
           </div>
 
-          {/* ── RIGHT: Real portfolio photo in browser chrome ── */}
-          <div className="relative lg:pl-4" aria-hidden="true">
-            {/* Browser mockup frame */}
+          {/* ── RIGHT COLUMN: Website Preview ── */}
+          <div
+            className="hero-visual"
+            aria-hidden="true"
+            style={{
+              position: "relative",
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+            }}
+          >
+            {/* Desktop browser mockup */}
             <div
-              className="rounded-2xl overflow-hidden shadow-2xl border"
-              style={{ borderColor: "#E5E7EB" }}
+              style={{
+                width: "100%",
+                maxWidth: "640px",
+                borderRadius: "10px",
+                overflow: "hidden",
+                border: "1px solid rgba(0,0,0,0.1)",
+                boxShadow: "0 24px 64px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.06)",
+                background: "#E8E8EA",
+                position: "relative",
+                zIndex: 1,
+              }}
             >
-              {/* Chrome bar */}
+              {/* Browser chrome */}
               <div
-                className="flex items-center gap-1.5 px-4 py-3 border-b"
-                style={{ background: "#F9FAFB", borderColor: "#E5E7EB" }}
+                style={{
+                  height: "32px",
+                  background: "#E8E8EA",
+                  borderBottom: "1px solid rgba(0,0,0,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "0 12px",
+                  flexShrink: 0,
+                }}
               >
-                <div className="w-3 h-3 rounded-full" style={{ background: "#FC8181" }} />
-                <div className="w-3 h-3 rounded-full" style={{ background: "#FBBF24" }} />
-                <div className="w-3 h-3 rounded-full" style={{ background: "#6EE7B7" }} />
+                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FF5F57" }} />
+                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FEBC2E" }} />
+                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#28C840" }} />
                 <div
-                  className="ml-3 flex-1 h-5 rounded-md flex items-center px-2"
-                  style={{ background: "#F3F4F6" }}
+                  style={{
+                    flex: 1,
+                    height: "16px",
+                    background: "rgba(0,0,0,0.07)",
+                    borderRadius: "4px",
+                    marginLeft: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    paddingLeft: "8px",
+                  }}
                 >
-                  <span className="text-xs" style={{ color: "#9CA3AF" }}>
+                  <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.35)", letterSpacing: "0.01em" }}>
                     bibekbhagat.dev/work/interior-design
                   </span>
                 </div>
               </div>
-
-              {/* Actual portfolio screenshot */}
-              <div className="relative" style={{ aspectRatio: "16/10" }}>
+              {/* Screenshot */}
+              <div style={{ position: "relative", aspectRatio: "16/10" }}>
                 <Image
-                  src="/work/images/interior-design-hero.jpg"
-                  alt="Atelier Aura interior design website — luxury Indian living room with warm ivory tones and brass accents"
+                  src="/work/previews/interior-design-desktop.png"
+                  alt="Atelier Aura interior design studio website — luxury editorial layout"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                   priority
                 />
               </div>
             </div>
 
-            {/* Floating price badge */}
+            {/* Overlapping mobile mockup */}
             <div
-              className="absolute -top-4 -left-4 sm:-left-8 bg-white rounded-xl shadow-lg border p-3 sm:p-4"
-              style={{ borderColor: "#E5E7EB" }}
+              className="hero-mobile-frame"
+              style={{
+                position: "absolute",
+                bottom: "-28px",
+                right: "-16px",
+                width: "130px",
+                zIndex: 2,
+                borderRadius: "18px",
+                overflow: "hidden",
+                border: "2.5px solid rgba(0,0,0,0.12)",
+                boxShadow: "0 12px 32px rgba(0,0,0,0.18)",
+                background: "#1A1A1A",
+              }}
             >
-              <div className="text-2xl font-black" style={{ color: "#111118" }}>₹6,999</div>
-              <div className="text-xs font-medium mt-0.5" style={{ color: "#6B7280" }}>starting price</div>
+              {/* Phone notch */}
+              <div
+                style={{
+                  background: "#1A1A1A",
+                  height: "16px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div style={{ width: "36px", height: "5px", borderRadius: "3px", background: "#333" }} />
+              </div>
+              {/* Screen */}
+              <div style={{ position: "relative", aspectRatio: "9/19.5", overflow: "hidden" }}>
+                <Image
+                  src="/work/previews/interior-design-mobile.png"
+                  alt="Atelier Aura website — mobile view"
+                  fill
+                  className="object-cover object-top"
+                  sizes="130px"
+                  priority
+                />
+              </div>
             </div>
 
-            <div className="absolute -bottom-3 -right-2 sm:-right-6 bg-indigo-600 text-white rounded-xl shadow-lg px-3 py-2 sm:px-4 sm:py-3">
-              <div className="text-sm font-bold">10 Projects</div>
-              <div className="text-xs opacity-80 mt-0.5">View portfolio →</div>
+            {/* "Built for Indian Businesses" badge — bottom-left */}
+            <div
+              className="hero-badge"
+              style={{
+                position: "absolute",
+                bottom: "-20px",
+                left: "-12px",
+                background: "white",
+                borderRadius: "10px",
+                border: "1px solid #E5E7EB",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                padding: "10px 14px",
+                zIndex: 3,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "0.8125rem",
+                  fontWeight: 800,
+                  color: "#0D0D12",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Built for Indian Businesses
+              </div>
+              <div style={{ fontSize: "0.6875rem", color: "#6B7280", marginTop: "2px", fontWeight: 500 }}>
+                10 industries covered
+              </div>
             </div>
           </div>
         </div>
       </Container>
+
+      {/* Responsive styles */}
+      <style>{`
+        @media (min-width: 900px) {
+          .hero-grid {
+            grid-template-columns: 5fr 6fr !important;
+            gap: 4rem !important;
+          }
+        }
+
+        @media (max-width: 899px) {
+          .hero-visual {
+            margin-top: 1rem;
+          }
+          .hero-mobile-frame {
+            right: 0 !important;
+            bottom: -20px !important;
+            width: 110px !important;
+          }
+          .hero-badge {
+            left: 0 !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-mobile-frame {
+            display: none !important;
+          }
+          .hero-badge {
+            display: none !important;
+          }
+        }
+
+        .hero-secondary-cta:hover {
+          border-color: #6366F1 !important;
+          color: #4338CA !important;
+        }
+      `}</style>
     </section>
   );
 }
