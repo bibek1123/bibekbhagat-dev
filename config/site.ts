@@ -10,13 +10,50 @@ export const siteConfig = {
   url: "https://bibekbhagat.dev",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@bibekbhagat.dev",
   social: {
+    linkedin: "https://linkedin.com/in/bibekbhagat",
+    github: "https://github.com/bibek1123",
+    hackerrank: "https://hackerrank.com/bibek1123",
+    leetcode: "https://leetcode.com/u/bibek1123",
     instagram:
       process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
       "https://instagram.com/bibekbhagat.dev",
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || "",
-    twitter: process.env.NEXT_PUBLIC_TWITTER_URL || "",
   },
 } as const;
+
+export const developerProfiles = [
+  {
+    name: "LinkedIn",
+    handle: "in/bibekbhagat",
+    url: "https://linkedin.com/in/bibekbhagat",
+    label: "LinkedIn Profile",
+    category: "Professional Network",
+    color: "#0A66C2",
+  },
+  {
+    name: "GitHub",
+    handle: "bibek1123",
+    url: "https://github.com/bibek1123",
+    label: "GitHub Repositories",
+    category: "Open Source Code",
+    color: "#F3F4F6",
+  },
+  {
+    name: "LeetCode",
+    handle: "bibek1123",
+    url: "https://leetcode.com/u/bibek1123",
+    label: "LeetCode Profile",
+    category: "Algorithms & DSA",
+    color: "#FFA116",
+  },
+  {
+    name: "HackerRank",
+    handle: "bibek1123",
+    url: "https://hackerrank.com/bibek1123",
+    label: "HackerRank Profile",
+    category: "Problem Solving",
+    color: "#00EA64",
+  },
+] as const;
 
 // WhatsApp configuration
 // number is empty string when NEXT_PUBLIC_WHATSAPP_NUMBER is not configured.

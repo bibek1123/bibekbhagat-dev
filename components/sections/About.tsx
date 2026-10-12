@@ -12,6 +12,61 @@ const techStack = [
   "Cloud Deployment",
 ];
 
+const onlineProfiles = [
+  {
+    name: "GitHub",
+    handle: "bibek1123",
+    url: "https://github.com/bibek1123",
+    category: "Code & Repositories",
+    borderColor: "hover:border-purple-400/80 hover:bg-purple-950/30",
+    glowColor: "group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn",
+    handle: "in/bibekbhagat",
+    url: "https://linkedin.com/in/bibekbhagat",
+    category: "Professional Network",
+    borderColor: "hover:border-[#0A66C2] hover:bg-[#0A66C2]/15",
+    glowColor: "group-hover:shadow-[0_0_15px_rgba(10,102,194,0.3)]",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 1 0 0-3.06 1.53 1.53 0 0 0 0 3.06m1.39 9.74v-8.37H5.07v8.37h2.78z" />
+      </svg>
+    ),
+  },
+  {
+    name: "LeetCode",
+    handle: "u/bibek1123",
+    url: "https://leetcode.com/u/bibek1123",
+    category: "Algorithms & Logic",
+    borderColor: "hover:border-[#FFA116] hover:bg-[#FFA116]/15",
+    glowColor: "group-hover:shadow-[0_0_15px_rgba(255,161,22,0.3)]",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFA116" aria-hidden="true">
+        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.864c.354.047.706.071 1.058.071 2.213 0 4.238-1.238 5.247-3.208l1.417-2.756a1.374 1.374 0 0 0-.614-1.849 1.376 1.376 0 0 0-1.85.614l-1.417 2.756a3.528 3.528 0 0 1-3.158 1.933c-.22 0-.441-.015-.662-.045a3.447 3.447 0 0 1-2.799-2.244 3.23 3.23 0 0 1-.203-.591 3.21 3.21 0 0 1-.036-1.373c.032-.199.09-.395.174-.582a3.06 3.06 0 0 1 .703-1.224l3.854-4.126 5.406-5.788a1.375 1.375 0 0 0-.992-2.31zM18.847 9.873a1.375 1.375 0 0 0-1.375 1.375v2.75a1.375 1.375 0 0 0 2.75 0v-2.75a1.375 1.375 0 0 0-1.375-1.375z" />
+      </svg>
+    ),
+  },
+  {
+    name: "HackerRank",
+    handle: "bibek1123",
+    url: "https://hackerrank.com/bibek1123",
+    category: "Problem Solving",
+    borderColor: "hover:border-[#00EA64] hover:bg-[#00EA64]/15",
+    glowColor: "group-hover:shadow-[0_0_15px_rgba(0,234,100,0.3)]",
+    icon: (
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#00EA64" aria-hidden="true">
+        <path d="M12 0a12 12 0 1 0 12 12A12.014 12.014 0 0 0 12 0zm3.89 16.59h-2.14V13.3H10.2v3.29H8.06V7.41h2.14v3.39h3.55V7.41h2.14v9.18z" />
+      </svg>
+    ),
+  },
+];
+
 const proofPillars = [
   {
     icon: (
@@ -198,6 +253,28 @@ export function About() {
               ))}
             </div>
 
+            {/* Verified Online Profiles */}
+            <div className="mt-3.5 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-400 mr-1 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
+                Online Profiles:
+              </span>
+              {onlineProfiles.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold bg-gray-50 text-gray-700 border border-gray-200 hover:border-indigo-300 hover:bg-white hover:text-indigo-600 transition-colors shadow-2xs group"
+                  aria-label={`${p.name} profile (${p.handle})`}
+                >
+                  <span className="shrink-0">{p.icon}</span>
+                  <span>{p.name}</span>
+                  <span className="text-[10px] text-gray-400 group-hover:text-indigo-600 font-mono">↗</span>
+                </a>
+              ))}
+            </div>
+
             {/* Direct Call to Action */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <WhatsAppButton size="lg" ctaLocation="about_direct">
@@ -333,6 +410,45 @@ export function About() {
                         </span>
                       ))}
                     </div>
+                  </div>
+                </div>
+
+                {/* Verified Engineering Profiles Card Grid */}
+                <div className="mt-3.5 p-3 rounded-xl bg-black/60 border border-gray-800/90 font-mono text-[11px] text-gray-300">
+                  <div className="flex items-center justify-between text-gray-400 pb-2 border-b border-gray-800 text-[10px]">
+                    <span className="text-indigo-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      </svg>
+                      <span>{"// VERIFIED ONLINE PROFILES"}</span>
+                    </span>
+                    <span className="text-emerald-400 font-mono text-[9px] bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800/60">
+                      LIVE PROOF
+                    </span>
+                  </div>
+
+                  <div className="mt-2.5 grid grid-cols-2 gap-2">
+                    {onlineProfiles.map((p) => (
+                      <a
+                        key={p.name}
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`p-2 rounded-lg bg-gray-950/90 border border-gray-800/80 transition-all duration-200 group flex flex-col justify-between ${p.borderColor} ${p.glowColor}`}
+                        aria-label={`${p.name} Profile - ${p.handle}`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5 text-white font-bold text-[11px]">
+                            <span className="shrink-0">{p.icon}</span>
+                            <span>{p.name}</span>
+                          </div>
+                          <span className="text-[10px] text-gray-500 group-hover:text-white transition-colors">↗</span>
+                        </div>
+                        <p className="mt-1 text-[10px] text-gray-400 truncate font-mono m-0">
+                          {p.handle}
+                        </p>
+                      </a>
+                    ))}
                   </div>
                 </div>
 

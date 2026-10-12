@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { siteConfig, footerLinks } from "@/config/site";
+import { siteConfig, footerLinks, developerProfiles } from "@/config/site";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -100,6 +100,38 @@ export function Footer() {
             </ul>
           </nav>
 
+          {/* Profiles */}
+          <nav aria-label="Footer developer profiles">
+            <h3 style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgba(255,255,255,0.7)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>
+              Profiles
+            </h3>
+            <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
+              {developerProfiles.map((profile) => (
+                <li key={profile.name}>
+                  <a
+                    href={profile.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "rgba(255,255,255,0.45)",
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.375rem",
+                      transition: "color 0.15s",
+                    }}
+                    className="footer-link"
+                    aria-label={`${profile.name} Profile`}
+                  >
+                    <span>{profile.name}</span>
+                    <span style={{ fontSize: "0.75rem", opacity: 0.6 }}>↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           {/* Legal */}
           <nav aria-label="Footer legal navigation">
             <h3 style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgba(255,255,255,0.7)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>
@@ -151,8 +183,8 @@ export function Footer() {
         }
         @media (min-width: 640px) {
           .footer-grid {
-            grid-template-columns: 2fr 1fr 1fr !important;
-            gap: 3rem !important;
+            grid-template-columns: 2fr 1fr 1fr 1fr !important;
+            gap: 2.5rem !important;
           }
         }
       `}</style>
