@@ -4,9 +4,9 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export function CustomSolutions() {
   return (
     <section
-      id="custom"
+      id="custom-solutions"
       aria-labelledby="custom-heading"
-      className="py-20 md:py-32 bg-[#F6F5F3] relative overflow-hidden"
+      className="py-20 md:py-32 bg-[#F6F5F3] relative overflow-hidden scroll-mt-16"
     >
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">

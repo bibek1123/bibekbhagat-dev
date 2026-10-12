@@ -36,11 +36,20 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Professional Websites for Indian Businesses`,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Professional Websites for Indian Businesses`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — Professional Websites for Indian Businesses`,
     description: siteConfig.description,
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
