@@ -136,15 +136,15 @@ export function RealEstateView() {
       {/* ── DEMO NOTICE BANNER (PORTFOLIO SPEC) ── */}
       <div className="bg-[#0B132B] text-[#CBD5E1] text-xs py-1.5 px-4 flex items-center justify-between border-b border-white/10">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between text-[11px] sm:text-xs">
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-            <span className="font-medium text-white/90">Portfolio Showcase: Boutique Real Estate &amp; Property Advisory Web Platform</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+            <span className="font-medium text-white/90 truncate">Portfolio Showcase: Boutique Real Estate</span>
             <span className="hidden md:inline text-white/40">|</span>
             <span className="hidden md:inline text-white/60">Designed &amp; engineered by Bibek Bhagat</span>
           </div>
           <Link
             href="/#work"
-            className="text-[#C59B27] hover:text-[#e0b746] font-medium transition-colors ml-4 flex items-center gap-1"
+            className="text-[#C59B27] hover:text-[#e0b746] font-medium transition-colors ml-3 sm:ml-4 shrink-0 flex items-center gap-1"
           >
             ← Back to bibekbhagat.dev
           </Link>
@@ -153,13 +153,13 @@ export function RealEstateView() {
 
       {/* ── ARCHITECTURAL REAL ESTATE NAV ── */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <Link href="/work/real-estate" className="group">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0B132B] block leading-none font-serif">
+              <span className="text-lg sm:text-2xl font-black tracking-tight text-[#0B132B] block leading-none font-serif">
                 ARYA<span className="text-[#C59B27]">.</span>PROPERTIES
               </span>
-              <span className="text-[9px] font-mono tracking-[0.25em] text-[#64748B] uppercase block mt-1">
+              <span className="text-[8px] sm:text-[9px] font-mono tracking-[0.2em] sm:tracking-[0.25em] text-[#64748B] uppercase block mt-1 truncate">
                 Boutique Advisory &amp; Prime Estates
               </span>
             </Link>
@@ -182,7 +182,7 @@ export function RealEstateView() {
 
           <a
             href="#advisory"
-            className="px-5 py-2.5 bg-[#0B132B] hover:bg-[#1C2541] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            className="px-3.5 py-2 sm:px-5 sm:py-2.5 bg-[#0B132B] hover:bg-[#1C2541] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-lg sm:rounded-xl transition-all shadow-sm shrink-0 whitespace-nowrap"
           >
             Consult Advisory
           </a>
@@ -190,7 +190,7 @@ export function RealEstateView() {
       </header>
 
       {/* ── 99ACRES-INSPIRED PROPERTY DISCOVERY HERO ── */}
-      <section className="relative bg-[#0B132B] text-white pt-16 pb-20 lg:pt-20 lg:pb-28 overflow-hidden border-b border-white/10">
+      <section className="relative bg-[#0B132B] text-white pt-8 pb-14 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-28 overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 opacity-25">
           <Image
             src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80"
@@ -203,53 +203,54 @@ export function RealEstateView() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/95 to-[#0B132B]/75" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 bg-[#C59B27]/20 border border-[#C59B27]/30 text-[#C59B27] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 font-mono">
+          <div className="max-w-3xl mb-6 sm:mb-10">
+            <div className="inline-flex items-center gap-2 bg-[#C59B27]/20 border border-[#C59B27]/30 text-[#C59B27] px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4 font-mono">
               <span>🏛️</span> Prime Indian Residential &amp; Commercial Real Estate
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal tracking-tight leading-[1.1] mb-4 text-white">
+            <h1 className="text-2xl sm:text-5xl lg:text-6xl font-serif font-normal tracking-tight leading-[1.15] sm:leading-[1.1] mb-2.5 sm:mb-4 text-white">
               Discover Distinctive Residences. <br />
               <span className="italic text-[#C59B27]">Curated for Discerning Living.</span>
             </h1>
-            <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-xl font-normal">
+            <p className="text-xs sm:text-base text-[#94A3B8] leading-relaxed max-w-xl font-normal mb-0">
               Explore bespoke penthouses, private courtyard villas, and prime commercial suites across Gurugram, Mumbai, and Bengaluru through our focused discovery experience.
             </p>
           </div>
 
           {/* Interactive Property Search Filter Box (99acres UX Principle) */}
-          <div id="discover" className="bg-white rounded-2xl p-6 sm:p-8 text-[#0F172A] shadow-2xl border border-[#CBD5E1] max-w-4xl">
+          <div id="discover" className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-8 text-[#0F172A] shadow-2xl border border-[#CBD5E1] max-w-4xl">
             {/* Buy / Rent / Commercial Tabs */}
-            <div className="flex border-b border-[#E2E8F0] pb-4 mb-6 gap-3">
+            <div className="grid grid-cols-3 gap-1.5 sm:flex sm:gap-3 border-b border-[#E2E8F0] pb-3 sm:pb-4 mb-4 sm:mb-6">
               {[
-                { id: "buy", label: "Buy Property", icon: "🏡" },
-                { id: "rent", label: "Luxury Rent", icon: "🔑" },
-                { id: "commercial", label: "Commercial", icon: "🏢" },
+                { id: "buy", label: "Buy Property", shortLabel: "Buy", icon: "🏡" },
+                { id: "rent", label: "Luxury Rent", shortLabel: "Rent", icon: "🔑" },
+                { id: "commercial", label: "Commercial", shortLabel: "Commercial", icon: "🏢" },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTypeTab(tab.id as "buy" | "rent" | "commercial")}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                  className={`px-2 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                     activeTypeTab === tab.id
                       ? "bg-[#0B132B] text-white shadow-sm"
                       : "bg-[#F1F5F9] text-[#64748B] hover:bg-[#E2E8F0] hover:text-[#0F172A]"
                   }`}
                 >
                   <span>{tab.icon}</span>
-                  <span>{tab.label}</span>
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.shortLabel}</span>
                 </button>
               ))}
             </div>
 
             {/* Filter selectors row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#64748B] mb-1.5 font-mono">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#64748B] mb-1 font-mono">
                   City / Micro-Market
                 </label>
                 <select
                   value={selectedLocality}
                   onChange={(e) => setSelectedLocality(e.target.value)}
-                  className="w-full px-4 py-3 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs font-semibold text-[#0F172A] outline-none focus:border-[#C59B27]"
+                  className="w-full px-3.5 py-2.5 sm:py-3 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs font-semibold text-[#0F172A] outline-none focus:border-[#C59B27]"
                 >
                   <option value="all">All Prime Cities</option>
                   <option value="Gurugram">Gurugram (Golf Course Ext)</option>
@@ -260,13 +261,13 @@ export function RealEstateView() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#64748B] mb-1.5 font-mono">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#64748B] mb-1 font-mono">
                   Property Typology
                 </label>
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full px-4 py-3 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs font-semibold text-[#0F172A] outline-none focus:border-[#C59B27]"
+                  className="w-full px-3.5 py-2.5 sm:py-3 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs font-semibold text-[#0F172A] outline-none focus:border-[#C59B27]"
                 >
                   <option value="all">All Typologies</option>
                   <option value="Penthouse">Sky Penthouses</option>
@@ -279,7 +280,7 @@ export function RealEstateView() {
               <div className="flex items-end">
                 <a
                   href="#featured"
-                  className="w-full py-3.5 bg-[#C59B27] hover:bg-[#b0871d] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md text-center"
+                  className="w-full py-2.5 sm:py-3.5 bg-[#C59B27] hover:bg-[#b0871d] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md text-center flex items-center justify-center gap-1.5"
                 >
                   View ({filteredProperties.length}) Properties →
                 </a>
@@ -396,16 +397,16 @@ export function RealEstateView() {
                   </div>
 
                   {/* Card Action Footer */}
-                  <div className="p-6 sm:p-8 pt-0 flex items-center justify-between mt-auto">
+                  <div className="p-6 sm:p-8 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3 mt-auto">
                     <button
                       onClick={() => setActivePropertyModal(prop)}
-                      className="px-5 py-2.5 border border-[#CBD5E1] hover:border-[#0B132B] text-xs font-bold rounded-xl text-[#0B132B] transition-colors cursor-pointer"
+                      className="w-full sm:w-auto px-4 sm:px-5 py-2.5 border border-[#CBD5E1] hover:border-[#0B132B] text-xs font-bold rounded-xl text-[#0B132B] transition-colors cursor-pointer text-center"
                     >
                       View Specifications
                     </button>
                     <button
                       onClick={() => setActivePropertyModal(prop)}
-                      className="px-6 py-2.5 bg-[#0B132B] hover:bg-[#1C2541] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer"
+                      className="w-full sm:w-auto px-5 sm:px-6 py-2.5 bg-[#0B132B] hover:bg-[#1C2541] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer text-center"
                     >
                       Book Walkthrough →
                     </button>
