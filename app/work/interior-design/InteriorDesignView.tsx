@@ -289,7 +289,7 @@ export function InteriorDesignView() {
             </div>
 
             {/* Category Filter */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {[
                 { id: "all", label: "All Concepts" },
                 { id: "residential", label: "Residential" },
@@ -298,7 +298,7 @@ export function InteriorDesignView() {
                 <button
                   key={b.id}
                   onClick={() => setFilter(b.id as "all" | "residential" | "commercial")}
-                  className={`text-xs uppercase tracking-widest px-4 py-2 transition-all cursor-pointer font-bold ${
+                  className={`text-xs uppercase tracking-wider sm:tracking-widest px-3 py-1.5 sm:px-4 sm:py-2 transition-all cursor-pointer font-bold ${
                     filter === b.id
                       ? "bg-[#1A1817] text-white"
                       : "bg-white/60 text-[#6B5F54] hover:bg-white hover:text-[#1A1817]"
