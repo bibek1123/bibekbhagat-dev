@@ -1,407 +1,363 @@
 "use client";
 
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-
-// Small inline SVG icons — no emoji
-function CheckIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      style={{ flexShrink: 0 }}
-    >
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
-  );
-}
-
-const trustSignals = [
-  { label: "Fast Delivery" },
-  { label: "Fixed Pricing" },
-  { label: "Mobile-First" },
-];
+import { heroFeaturedProjects } from "@/config/work";
 
 export function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const activeProject = heroFeaturedProjects[currentIndex];
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % heroFeaturedProjects.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? heroFeaturedProjects.length - 1 : prev - 1
+    );
+  }, []);
+
+  // Cycle slides every 5.5 seconds unless paused or reduced motion
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isPaused || prefersReducedMotion) return;
+
+    timerRef.current = setInterval(() => {
+      nextSlide();
+    }, 5500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPaused, nextSlide]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      nextSlide();
+      setIsPaused(true);
+    } else if (e.key === "ArrowLeft") {
+      prevSlide();
+      setIsPaused(true);
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (diff > 50) {
+      nextSlide();
+      setIsPaused(true);
+    } else if (diff < -50) {
+      prevSlide();
+      setIsPaused(true);
+    }
+    setTouchStart(null);
+  };
+
   return (
     <section
-      className="relative overflow-hidden"
-      style={{
-        background: "#FAFAF8",
-        paddingTop: "6rem",
-        paddingBottom: "5rem",
-      }}
+      className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 bg-[#FAFAF8]"
       aria-labelledby="hero-heading"
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
     >
-      {/* Very subtle grid — 1px lines only */}
+      {/* Subtle architectural dot grid background */}
       <div
         aria-hidden="true"
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
-          position: "absolute",
-          inset: 0,
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.018) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
-          pointerEvents: "none",
+            "radial-gradient(#111827 1px, transparent 1px), radial-gradient(#111827 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          backgroundPosition: "0 0, 16px 16px",
         }}
       />
 
-      <Container className="relative">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "3rem",
-            alignItems: "center",
-          }}
-          className="hero-grid"
-        >
-          {/* ── LEFT COLUMN ── */}
-          <div style={{ maxWidth: "540px" }}>
-            {/* Price pill */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.375rem 0.875rem",
-                borderRadius: "999px",
-                border: "1px solid rgba(79,70,229,0.2)",
-                background: "rgba(79,70,229,0.04)",
-                marginBottom: "1.75rem",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: "#4F46E5",
-                  flexShrink: 0,
-                }}
-                aria-hidden="true"
-              />
-              <span
-                style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 700,
-                  color: "#3730A3",
-                  letterSpacing: "0.01em",
-                }}
-              >
-                Starting at ₹6,999
+      {/* Ambient background glow matching active project accent */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 right-0 w-[600px] h-[600px] rounded-full pointer-events-none blur-3xl transition-all duration-1000 ease-out opacity-20"
+        style={{
+          background: `radial-gradient(circle, ${activeProject.accentHex} 0%, transparent 70%)`,
+        }}
+      />
+
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* ── LEFT COLUMN: Value Proposition & Clear Offer ── */}
+          <div className="lg:col-span-5 flex flex-col justify-center">
+            {/* Price badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-200/80 bg-indigo-50/70 w-fit mb-6 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse shrink-0" />
+              <span className="text-xs font-bold text-indigo-900 tracking-wide">
+                Professional Websites · Starting at ₹6,999
               </span>
             </div>
 
-            {/* H1 */}
+            {/* Main H1 */}
             <h1
               id="hero-heading"
-              style={{
-                fontSize: "clamp(2.25rem, 5.5vw, 3.75rem)",
-                fontWeight: 900,
-                color: "#0D0D12",
-                letterSpacing: "-0.04em",
-                lineHeight: 1.05,
-                margin: 0,
-              }}
+              className="text-3xl sm:text-4xl lg:text-[3.25rem] font-black text-gray-950 tracking-tight leading-[1.1] m-0"
             >
-              Professional websites
-              <br />
-              that make your business
-              <br />
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #3730A3 0%, #4F46E5 60%, #6366F1 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              Professional websites that make your business{" "}
+              <span className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-indigo-500 bg-clip-text text-transparent">
                 look established.
               </span>
             </h1>
 
-            {/* Sub-copy */}
-            <p
-              style={{
-                marginTop: "1.5rem",
-                fontSize: "1.0625rem",
-                lineHeight: 1.75,
-                color: "#4B5563",
-                maxWidth: "480px",
-              }}
-            >
-              Modern, mobile-first websites for Indian businesses —
-              professionally designed without expensive agency pricing.
+            {/* Sub-headline */}
+            <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
+              Modern, mobile-first websites crafted for Indian businesses — clinics,
+              salons, interior designers, stores, and local enterprises.
+              Direct with developer. No agency markups.
             </p>
 
-            {/* Trust signals */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "1.25rem",
-                marginTop: "1.75rem",
-              }}
-            >
-              {trustSignals.map((s) => (
-                <div
-                  key={s.label}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    fontSize: "0.875rem",
-                    fontWeight: 600,
-                    color: "#374151",
-                  }}
-                >
-                  <span
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      borderRadius: "50%",
-                      background: "rgba(79,70,229,0.08)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#4F46E5",
-                    }}
-                  >
-                    <CheckIcon />
-                  </span>
-                  {s.label}
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.75rem",
-                marginTop: "2rem",
-              }}
-            >
-              <WhatsAppButton size="lg" ctaLocation="hero">
+            {/* Primary CTAs */}
+            <div className="mt-6 sm:mt-7 flex flex-wrap items-center gap-3">
+              <WhatsAppButton
+                size="lg"
+                ctaLocation="hero_primary"
+                className="font-semibold shadow-md hover:shadow-lg transition-all"
+              >
                 Get a Free Quote →
               </WhatsAppButton>
+
               <Link
                 href="/#work"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: "52px",
-                  padding: "0 1.75rem",
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#374151",
-                  background: "transparent",
-                  border: "1.5px solid #D1D5DB",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  transition: "border-color 0.15s, color 0.15s",
-                }}
-                className="hero-secondary-cta"
+                className="inline-flex items-center justify-center h-13 px-6 text-base font-semibold text-gray-700 bg-white hover:bg-gray-50 border border-gray-300 rounded-lg shadow-2xs hover:border-gray-400 transition-colors text-decoration-none"
               >
-                View Our Work
+                View Selected Work
               </Link>
+            </div>
+
+            {/* Quick trust metrics */}
+            <div className="mt-7 pt-5 border-t border-gray-200/80 flex flex-wrap gap-x-5 gap-y-2.5 text-xs text-gray-600 font-medium">
+              <div className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Fast 7–14 Day Delivery</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Fixed Transparent Pricing</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>100% Mobile Optimized</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Direct With Developer</span>
+              </div>
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: Website Preview ── */}
+          {/* ── RIGHT COLUMN: High-Impact Layered Portfolio Showcase ── */}
           <div
-            className="hero-visual"
-            aria-hidden="true"
-            style={{
-              position: "relative",
-              display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "center",
-            }}
+            className="lg:col-span-7 relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            {/* Desktop browser mockup */}
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "640px",
-                borderRadius: "10px",
-                overflow: "hidden",
-                border: "1px solid rgba(0,0,0,0.1)",
-                boxShadow: "0 24px 64px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.06)",
-                background: "#E8E8EA",
-                position: "relative",
-                zIndex: 1,
-              }}
-            >
-              {/* Browser chrome */}
+            {/* Visual Stage Container with Subtle Perspective */}
+            <div className="relative mx-auto max-w-[620px] lg:max-w-none">
+              {/* Background stacked depth card (giving rich layered feel) */}
               <div
-                style={{
-                  height: "32px",
-                  background: "#E8E8EA",
-                  borderBottom: "1px solid rgba(0,0,0,0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  padding: "0 12px",
-                  flexShrink: 0,
-                }}
-              >
-                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FF5F57" }} />
-                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#FEBC2E" }} />
-                <div style={{ width: "9px", height: "9px", borderRadius: "50%", background: "#28C840" }} />
-                <div
-                  style={{
-                    flex: 1,
-                    height: "16px",
-                    background: "rgba(0,0,0,0.07)",
-                    borderRadius: "4px",
-                    marginLeft: "8px",
-                    display: "flex",
-                    alignItems: "center",
-                    paddingLeft: "8px",
-                  }}
-                >
-                  <span style={{ fontSize: "9px", color: "rgba(0,0,0,0.35)", letterSpacing: "0.01em" }}>
-                    bibekbhagat.dev/work/interior-design
-                  </span>
+                aria-hidden="true"
+                className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-[90%] h-[90%] rounded-2xl bg-gradient-to-br from-gray-200/60 to-gray-300/40 border border-gray-300/50 shadow-sm pointer-events-none transform rotate-1 scale-[0.98] transition-all duration-700"
+              />
+
+              {/* Main Desktop Browser Frame */}
+              <div className="relative rounded-xl overflow-hidden border border-gray-900/10 bg-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.06)] transition-all duration-500">
+                {/* Browser top chrome */}
+                <div className="h-8 bg-[#222329] border-b border-white/10 flex items-center justify-between px-3.5 select-none shrink-0">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+                  </div>
+                  <div className="flex-1 max-w-[320px] mx-3 h-5 bg-black/40 rounded-md border border-white/10 flex items-center px-2.5">
+                    <span className="text-[10px] text-gray-300 font-mono truncate">
+                      bibekbhagat.dev{activeProject.href}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-gray-400 text-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="text-[10px] uppercase tracking-wider font-semibold">Live Preview</span>
+                  </div>
+                </div>
+
+                {/* Desktop Screenshot display area */}
+                <div className="relative aspect-[16/10] w-full bg-gray-950 overflow-hidden group">
+                  {heroFeaturedProjects.map((project, idx) => {
+                    const isActive = idx === currentIndex;
+                    return (
+                      <div
+                        key={project.slug}
+                        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                          isActive
+                            ? "opacity-100 scale-100 z-10"
+                            : "opacity-0 scale-[1.02] pointer-events-none z-0"
+                        }`}
+                      >
+                        <Image
+                          src={project.previewImage}
+                          alt={project.previewImageAlt}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 680px"
+                          priority={idx === 0}
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-              {/* Screenshot */}
-              <div style={{ position: "relative", aspectRatio: "16/10" }}>
-                <Image
-                  src="/work/previews/interior-design-desktop.png"
-                  alt="Atelier Aura interior design studio website — luxury editorial layout"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                  priority
-                />
+
+              {/* Overlapping Mobile Smartphone Mockup */}
+              <div
+                className="absolute -bottom-6 right-0 sm:-bottom-8 sm:-right-4 w-[110px] sm:w-[150px] md:w-[165px] z-20 rounded-[20px] sm:rounded-[28px] overflow-hidden border-[3px] sm:border-[4px] border-gray-950 bg-gray-950 shadow-[0_24px_45px_rgba(0,0,0,0.25)] transition-all duration-500"
+              >
+                {/* Phone Speaker Notch */}
+                <div className="h-3 sm:h-4 bg-gray-950 flex items-center justify-center shrink-0">
+                  <div className="w-8 sm:w-10 h-1 sm:h-1.5 rounded-full bg-gray-800" />
+                </div>
+                {/* Mobile screen */}
+                <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-black">
+                  {heroFeaturedProjects.map((project, idx) => {
+                    const isActive = idx === currentIndex;
+                    return (
+                      <div
+                        key={`m-${project.slug}`}
+                        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                          isActive
+                            ? "opacity-100 scale-100 z-10"
+                            : "opacity-0 scale-[1.03] pointer-events-none z-0"
+                        }`}
+                      >
+                        <Image
+                          src={project.mobilePreview}
+                          alt={project.mobilePreviewAlt}
+                          fill
+                          sizes="180px"
+                          priority={idx === 0}
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Showcase Meta Card (Bottom Left Floating Badge) */}
+              <div className="absolute -bottom-5 sm:-bottom-6 left-2 sm:left-4 z-20 bg-white/95 backdrop-blur-md rounded-xl border border-gray-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.08)] p-3 sm:p-4 max-w-[240px] sm:max-w-[280px]">
+                <div className="flex items-center gap-2 mb-1">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: activeProject.accentHex }}
+                  />
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-500 truncate">
+                    {activeProject.category}
+                  </span>
+                </div>
+                <div className="flex items-baseline justify-between gap-2">
+                  <h2 className="text-sm sm:text-base font-extrabold text-gray-900 tracking-tight m-0 truncate">
+                    {activeProject.brand}
+                  </h2>
+                  <Link
+                    href={activeProject.href}
+                    className="text-xs font-bold text-indigo-600 hover:text-indigo-800 shrink-0 text-decoration-none"
+                  >
+                    View Project →
+                  </Link>
+                </div>
               </div>
             </div>
 
-            {/* Overlapping mobile mockup */}
-            <div
-              className="hero-mobile-frame"
-              style={{
-                position: "absolute",
-                bottom: "-28px",
-                right: "-16px",
-                width: "130px",
-                zIndex: 2,
-                borderRadius: "18px",
-                overflow: "hidden",
-                border: "2.5px solid rgba(0,0,0,0.12)",
-                boxShadow: "0 12px 32px rgba(0,0,0,0.18)",
-                background: "#1A1A1A",
-              }}
-            >
-              {/* Phone notch */}
-              <div
-                style={{
-                  background: "#1A1A1A",
-                  height: "16px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <div style={{ width: "36px", height: "5px", borderRadius: "3px", background: "#333" }} />
+            {/* Carousel Controls & Slide Indicators */}
+            <div className="mt-10 sm:mt-12 flex items-center justify-between gap-4 px-2">
+              {/* Slide Dots / Pill Indicators */}
+              <div className="flex items-center gap-2" role="tablist" aria-label="Featured projects">
+                {heroFeaturedProjects.map((project, idx) => {
+                  const isActive = idx === currentIndex;
+                  return (
+                    <button
+                      key={project.slug}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`Show ${project.brand} (${project.category})`}
+                      onClick={() => {
+                        setCurrentIndex(idx);
+                        setIsPaused(true);
+                      }}
+                      className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer border-0 p-0 ${
+                        isActive
+                          ? "w-8 bg-indigo-600"
+                          : "w-2.5 bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    />
+                  );
+                })}
               </div>
-              {/* Screen */}
-              <div style={{ position: "relative", aspectRatio: "9/19.5", overflow: "hidden" }}>
-                <Image
-                  src="/work/previews/interior-design-mobile.png"
-                  alt="Atelier Aura website — mobile view"
-                  fill
-                  className="object-cover object-top"
-                  sizes="130px"
-                  priority
-                />
-              </div>
-            </div>
 
-            {/* "Built for Indian Businesses" badge — bottom-left */}
-            <div
-              className="hero-badge"
-              style={{
-                position: "absolute",
-                bottom: "-20px",
-                left: "-12px",
-                background: "white",
-                borderRadius: "10px",
-                border: "1px solid #E5E7EB",
-                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-                padding: "10px 14px",
-                zIndex: 3,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 800,
-                  color: "#0D0D12",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                Built for Indian Businesses
-              </div>
-              <div style={{ fontSize: "0.6875rem", color: "#6B7280", marginTop: "2px", fontWeight: 500 }}>
-                10 industries covered
+              {/* Prev / Next Chevrons */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    prevSlide();
+                    setIsPaused(true);
+                  }}
+                  className="w-8 h-8 rounded-full border border-gray-300 bg-white hover:bg-gray-100 flex items-center justify-center text-gray-700 transition-colors cursor-pointer shadow-2xs"
+                  aria-label="Previous project"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    nextSlide();
+                    setIsPaused(true);
+                  }}
+                  className="w-8 h-8 rounded-full border border-gray-300 bg-white hover:bg-gray-100 flex items-center justify-center text-gray-700 transition-colors cursor-pointer shadow-2xs"
+                  aria-label="Next project"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </Container>
-
-      {/* Responsive styles */}
-      <style>{`
-        @media (min-width: 900px) {
-          .hero-grid {
-            grid-template-columns: 5fr 6fr !important;
-            gap: 4rem !important;
-          }
-        }
-
-        @media (max-width: 899px) {
-          .hero-visual {
-            margin-top: 1rem;
-          }
-          .hero-mobile-frame {
-            right: 0 !important;
-            bottom: -20px !important;
-            width: 110px !important;
-          }
-          .hero-badge {
-            left: 0 !important;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .hero-mobile-frame {
-            display: none !important;
-          }
-          .hero-badge {
-            display: none !important;
-          }
-        }
-
-        .hero-secondary-cta:hover {
-          border-color: #6366F1 !important;
-          color: #4338CA !important;
-        }
-      `}</style>
     </section>
   );
 }

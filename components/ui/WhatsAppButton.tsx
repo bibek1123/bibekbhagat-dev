@@ -7,6 +7,7 @@ import {
   getDefaultWhatsAppUrl,
   getStarterWhatsAppUrl,
   getBusinessWhatsAppUrl,
+  getCustomWhatsAppUrl,
 } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/analytics";
 
@@ -35,6 +36,7 @@ export function WhatsAppButton({
     if (message) return buildWhatsAppUrl(message);
     if (variant === "starter") return getStarterWhatsAppUrl();
     if (variant === "business") return getBusinessWhatsAppUrl();
+    if (variant === "custom") return getCustomWhatsAppUrl();
     return getDefaultWhatsAppUrl();
   };
 

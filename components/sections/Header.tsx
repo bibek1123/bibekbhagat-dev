@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { navLinks } from "@/config/site";
@@ -12,7 +11,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setIsScrolled(window.scrollY > 24);
+    const handler = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -29,95 +28,57 @@ export function Header() {
   // Prevent scroll when mobile nav is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
     <>
       <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/98 backdrop-blur-sm border-b border-gray-100"
-            : "bg-white/90 backdrop-blur-sm"
-        )}
+            ? "bg-white/95 backdrop-blur-md border-b border-gray-200/70 shadow-[0_4px_20px_rgba(0,0,0,0.03)]"
+            : "bg-white/85 backdrop-blur-sm"
+        }`}
       >
         <Container>
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              height: "60px",
-            }}
+            className={`flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? "h-14" : "h-16"
+            }`}
           >
             {/* Logo */}
             <Link
               href="/"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.625rem",
-                textDecoration: "none",
-              }}
-              aria-label="Bibek Bhagat — Home"
+              className="flex items-center gap-2.5 text-decoration-none group"
+              aria-label="Bibek Bhagat — Professional Websites for Indian Businesses"
             >
-              <div
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "7px",
-                  background: "#4F46E5",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                <span
-                  style={{
-                    color: "white",
-                    fontWeight: 900,
-                    fontSize: "0.875rem",
-                    lineHeight: 1,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
+              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-105">
+                <span className="text-white font-black text-sm tracking-tight leading-none">
                   B
                 </span>
               </div>
-              <span
-                style={{
-                  fontWeight: 800,
-                  fontSize: "0.9375rem",
-                  color: "#0D0D12",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                Bibek Bhagat
-              </span>
+              <div className="flex flex-col">
+                <span className="font-extrabold text-[0.9375rem] text-gray-900 tracking-tight leading-snug">
+                  Bibek Bhagat
+                </span>
+                <span className="text-[0.625rem] text-gray-500 font-semibold tracking-wider uppercase -mt-0.5">
+                  Websites for Business
+                </span>
+              </div>
             </Link>
 
             {/* Desktop nav */}
             <nav
-              className="hidden md:flex items-center"
-              style={{ gap: "0.125rem" }}
+              className="hidden md:flex items-center gap-1"
               aria-label="Main navigation"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  style={{
-                    padding: "0.375rem 0.75rem",
-                    fontSize: "0.875rem",
-                    fontWeight: 500,
-                    color: "#4B5563",
-                    textDecoration: "none",
-                    borderRadius: "6px",
-                    transition: "color 0.15s, background 0.15s",
-                  }}
-                  className="nav-link"
+                  className="px-3.5 py-1.5 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-black/4 rounded-lg transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -125,11 +86,12 @@ export function Header() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden md:flex items-center gap-3">
               <WhatsAppButton
                 size="sm"
                 ctaLocation="header"
-                showIcon={false}
+                showIcon={true}
+                className="font-semibold"
               >
                 Get a Free Quote
               </WhatsAppButton>
@@ -144,11 +106,25 @@ export function Header() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen ? (
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.2}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.2}
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
@@ -160,7 +136,7 @@ export function Header() {
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/20 md:hidden"
+          className="fixed inset-0 z-40 bg-black/25 backdrop-blur-xs md:hidden"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -168,38 +144,30 @@ export function Header() {
 
       {/* Mobile drawer */}
       <nav
-        className={cn(
-          "fixed top-[60px] left-0 right-0 z-40 bg-white border-b border-gray-100 md:hidden transition-all duration-250",
-          mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
-        )}
+        className={`fixed top-[56px] left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-b border-gray-100 md:hidden transition-all duration-300 shadow-xl ${
+          mobileOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
         aria-label="Mobile navigation"
         aria-hidden={!mobileOpen}
       >
-        <Container className="py-4">
-          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+        <Container className="py-5">
+          <ul className="m-0 p-0 list-none flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0.75rem 0.75rem",
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    color: "#374151",
-                    textDecoration: "none",
-                    borderRadius: "8px",
-                  }}
-                  className="mobile-nav-link"
+                  className="flex items-center justify-between px-3.5 py-2.5 text-base font-semibold text-gray-800 hover:text-indigo-600 hover:bg-indigo-50/60 rounded-lg transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span className="text-gray-400 text-sm font-normal">→</span>
                 </Link>
               </li>
             ))}
           </ul>
-          <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid #F3F4F6" }}>
+          <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-2">
             <WhatsAppButton
               size="lg"
               ctaLocation="mobile_header"
@@ -207,20 +175,12 @@ export function Header() {
             >
               Get a Free Quote
             </WhatsAppButton>
+            <p className="text-center text-xs text-gray-400 m-0">
+              Direct conversation with Bibek · Starting ₹6,999
+            </p>
           </div>
         </Container>
       </nav>
-
-      <style>{`
-        .nav-link:hover {
-          color: #0D0D12 !important;
-          background: rgba(0,0,0,0.04) !important;
-        }
-        .mobile-nav-link:hover {
-          background: rgba(79,70,229,0.05) !important;
-          color: #4F46E5 !important;
-        }
-      `}</style>
     </>
   );
 }

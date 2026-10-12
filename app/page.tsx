@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
+import { TrustStrip } from "@/components/sections/TrustStrip";
 import { OurWork } from "@/components/sections/OurWork";
 import { Services } from "@/components/sections/Services";
 import { CustomSolutions } from "@/components/sections/CustomSolutions";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data
+// Structured data for rich search presence
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -72,6 +73,7 @@ export default function HomePage() {
       <Header />
       <main id="main-content">
         <Hero />
+        <TrustStrip />
         <OurWork />
         <Services />
         <CustomSolutions />

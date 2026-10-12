@@ -7,75 +7,41 @@ export function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      style={{ background: "#F6F5F3", paddingTop: "5rem", paddingBottom: "5rem" }}
+      className="py-20 md:py-32 bg-[#F6F5F3] relative overflow-hidden"
     >
       <Container>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "3rem",
-          }}
-          className="faq-grid"
-        >
-          {/* Left: heading */}
-          <div>
-            <p
-              style={{
-                fontSize: "0.6875rem",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(0,0,0,0.35)",
-                marginBottom: "1rem",
-              }}
-            >
-              FAQ
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left Column: Heading & Context */}
+          <div className="lg:col-span-4 lg:sticky lg:top-24">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-2 h-2 rounded-full bg-indigo-600" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 m-0">
+                Frequently Asked Questions
+              </p>
+            </div>
             <h2
               id="faq-heading"
-              style={{
-                fontSize: "clamp(1.875rem, 3.5vw, 2.75rem)",
-                fontWeight: 900,
-                color: "#0D0D12",
-                letterSpacing: "-0.04em",
-                lineHeight: 1.05,
-                margin: 0,
-              }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-950 tracking-tight leading-[1.08] m-0"
             >
-              Common
-              <br />
-              questions.
+              Clear answers before you begin.
             </h2>
-            <p
-              style={{
-                marginTop: "1rem",
-                fontSize: "0.9375rem",
-                color: "#6B7280",
-                lineHeight: 1.7,
-                maxWidth: "280px",
-              }}
-            >
-              Everything you need to know before getting started.
+            <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+              Everything you need to know about timelines, content, hosting, revisions,
+              and ongoing support.
             </p>
+            <div className="mt-8 p-4 rounded-xl bg-white border border-gray-200/90 shadow-2xs">
+              <p className="text-xs text-gray-500 m-0 leading-relaxed">
+                Have a unique question not listed here? Message Bibek directly on WhatsApp for an immediate answer.
+              </p>
+            </div>
           </div>
 
-          {/* Right: accordion */}
-          <div>
-            <Accordion items={faqItems} />
+          {/* Right Column: Accordion */}
+          <div className="lg:col-span-8 bg-white rounded-2xl border border-gray-200/90 p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
+            <Accordion items={faqItems} className="border-0 divide-gray-100" />
           </div>
         </div>
       </Container>
-
-      <style>{`
-        @media (min-width: 768px) {
-          .faq-grid {
-            grid-template-columns: 1fr 2fr !important;
-            gap: 5rem !important;
-            align-items: start;
-          }
-        }
-      `}</style>
     </section>
   );
 }

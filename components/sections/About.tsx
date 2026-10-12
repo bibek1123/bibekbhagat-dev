@@ -2,230 +2,175 @@ import { Container } from "@/components/ui/Container";
 
 const proofPoints = [
   {
-    label: "4+ Years Experience",
-    detail: "Building websites and web products professionally.",
+    title: "Direct 1:1 Communication",
+    description: "You speak directly with the developer building your site — no account managers or sales middlemen.",
   },
   {
-    label: "Direct Communication",
-    detail: "You speak to the developer — not a sales team.",
+    title: "4+ Years Full-Stack Experience",
+    description: "Professional background across Next.js, React, TypeScript, and high-performance cloud architecture.",
   },
   {
-    label: "Full-Stack Development",
-    detail: "Design, code, and technical setup — all in one.",
+    title: "100% Client Ownership",
+    description: "All source files, domain configurations, and credentials are completely handed over upon launch.",
   },
 ];
 
-const techStack = "Next.js · React · TypeScript · Node.js · Cloud Deployment";
+const technologies = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Node.js",
+  "Cloud Deployment",
+  "Tailwind CSS",
+];
 
 export function About() {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      style={{ background: "#ffffff", paddingTop: "5rem", paddingBottom: "5rem" }}
+      className="py-20 md:py-32 bg-white relative overflow-hidden"
     >
       <Container>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "3.5rem",
-            alignItems: "start",
-          }}
-          className="about-grid"
-        >
-          {/* ── Left: About copy ── */}
-          <div>
-            <p
-              style={{
-                fontSize: "0.6875rem",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(0,0,0,0.35)",
-                marginBottom: "1.25rem",
-              }}
-            >
-              About
-            </p>
-            <h2
-              id="about-heading"
-              style={{
-                fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-                fontWeight: 900,
-                color: "#0D0D12",
-                letterSpacing: "-0.04em",
-                lineHeight: 1.1,
-                margin: 0,
-              }}
-            >
-              Work directly with
-              the developer building
-              your website.
-            </h2>
-
-            <p
-              style={{
-                marginTop: "1.5rem",
-                fontSize: "1rem",
-                lineHeight: 1.8,
-                color: "#4B5563",
-              }}
-            >
-              I&apos;m Bibek Bhagat, a full-stack developer with 4+ years of
-              experience building websites and web products.
-            </p>
-            <p
-              style={{
-                marginTop: "1rem",
-                fontSize: "1rem",
-                lineHeight: 1.8,
-                color: "#4B5563",
-              }}
-            >
-              From the first conversation through launch, you communicate
-              directly with the person designing and building your website. No
-              sales-team layers, no account managers — just a straightforward
-              working relationship.
-            </p>
-            <p
-              style={{
-                marginTop: "1rem",
-                fontSize: "1rem",
-                lineHeight: 1.8,
-                color: "#4B5563",
-              }}
-            >
-              Every design decision is made around your business and your
-              customers — not to impress other designers. The goal is a website
-              that makes it easy for customers to understand your business and
-              get in touch.
-            </p>
-
-            {/* Tech stack — subtle */}
-            <p
-              style={{
-                marginTop: "2rem",
-                fontSize: "0.8125rem",
-                color: "#9CA3AF",
-                lineHeight: 1.6,
-              }}
-            >
-              <span style={{ fontWeight: 600, color: "#6B7280" }}>Technical background: </span>
-              {techStack}
-            </p>
-          </div>
-
-          {/* ── Right: Photo placeholder + proof points ── */}
-          <div>
-            {/* Photo area — holds a real photo if available, otherwise an elegant placeholder */}
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "420px",
-                aspectRatio: "4/5",
-                borderRadius: "10px",
-                overflow: "hidden",
-                background: "#F0EEE8",
-                border: "1px solid rgba(0,0,0,0.07)",
-                marginBottom: "2rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-              aria-label="Developer photo — to be added"
-            >
-              {/* Initials placeholder — elegant, not generic */}
-              <div
-                style={{
-                  width: "72px",
-                  height: "72px",
-                  borderRadius: "50%",
-                  background: "#4F46E5",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-                aria-hidden="true"
-              >
-                <span
-                  style={{
-                    fontSize: "1.75rem",
-                    fontWeight: 900,
-                    color: "white",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  B
-                </span>
-              </div>
-              <p
-                style={{
-                  fontSize: "0.8125rem",
-                  color: "#9CA3AF",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Photo coming soon
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* ── Left Column: Editorial & Value Framing ── */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-2 h-2 rounded-full bg-indigo-600" />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 m-0">
+                Direct Developer Partnership
               </p>
             </div>
 
-            {/* Proof points */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0",
-                borderTop: "1px solid rgba(0,0,0,0.07)",
-              }}
+            <h2
+              id="about-heading"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-950 tracking-tight leading-[1.08] m-0"
             >
-              {proofPoints.map((point, idx) => (
-                <div
-                  key={point.label}
-                  style={{
-                    padding: "1.125rem 0",
-                    borderBottom: idx < proofPoints.length - 1 ? "1px solid rgba(0,0,0,0.07)" : "none",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "0.9375rem",
-                      fontWeight: 800,
-                      color: "#0D0D12",
-                      letterSpacing: "-0.01em",
-                      marginBottom: "0.25rem",
-                    }}
+              Work directly with the person building your website.
+            </h2>
+
+            <p className="mt-6 text-base sm:text-lg text-gray-600 leading-relaxed">
+              I&apos;m Bibek Bhagat, an independent full-stack developer with 4+ years of
+              experience crafting production web applications and business websites.
+            </p>
+
+            <p className="mt-4 text-base text-gray-600 leading-relaxed">
+              When you hire an agency, your budget often pays for office overhead, account managers,
+              and sales executives, while your project is handed to junior interns.
+              With me, you work directly with one accountable developer from the first WhatsApp
+              message to production launch.
+            </p>
+
+            <p className="mt-4 text-base text-gray-600 leading-relaxed">
+              Every design choice is made for your business and your customers: clear typography,
+              sub-second loading speeds, and frictionless contact paths so visitors convert into enquiries.
+            </p>
+
+            {/* Technical Background Chips */}
+            <div className="mt-8 pt-6 border-t border-gray-100">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 m-0">
+                Engineering Stack:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 rounded-lg text-xs font-bold bg-gray-100 text-gray-800 border border-gray-200/80 font-mono"
                   >
-                    {point.label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "0.875rem",
-                      color: "#6B7280",
-                      lineHeight: 1.55,
-                    }}
-                  >
-                    {point.detail}
-                  </div>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Core Proof Points */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {proofPoints.map((point) => (
+                <div key={point.title} className="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                  <h3 className="text-xs font-bold text-gray-950 m-0">{point.title}</h3>
+                  <p className="text-[11px] text-gray-500 mt-1 m-0 leading-relaxed">
+                    {point.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* ── Right Column: Intentional Graphic Identity Treatment ── */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-[440px] rounded-3xl bg-[#0B0F19] border border-gray-800 p-7 sm:p-9 shadow-[0_24px_60px_rgba(0,0,0,0.18)] overflow-hidden">
+              {/* Subtle ambient interior glow */}
+              <div
+                aria-hidden="true"
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-indigo-600/20 blur-3xl pointer-events-none"
+              />
+
+              {/* Monogram Crest */}
+              <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-800/80">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg shadow-indigo-600/30">
+                  <span className="text-white text-3xl font-black tracking-tight leading-none">
+                    B
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[11px] font-mono font-bold text-indigo-400 bg-indigo-950/80 px-2.5 py-1 rounded-md border border-indigo-800/50">
+                    4+ Years Exp.
+                  </span>
+                  <span className="block text-[10px] text-gray-500 uppercase tracking-widest mt-1">
+                    Independent Developer
+                  </span>
+                </div>
+              </div>
+
+              {/* Developer identity stamp */}
+              <div className="mb-6">
+                <h3 className="text-2xl font-black text-white tracking-tight m-0">
+                  Bibek Bhagat
+                </h3>
+                <p className="text-xs text-gray-400 font-medium mt-1 m-0">
+                  Full-Stack Web Engineer &amp; Designer
+                </p>
+              </div>
+
+              {/* Stylized Code Architectural Fragment */}
+              <div className="rounded-xl bg-black/60 border border-gray-800 p-4 font-mono text-[11px] text-gray-300 leading-relaxed space-y-1 select-none">
+                <div className="text-gray-500">{"// direct collaboration schema"}</div>
+                <div>
+                  <span className="text-purple-400">interface</span>{" "}
+                  <span className="text-yellow-300">Project</span> &#123;
+                </div>
+                <div className="pl-4">
+                  <span className="text-indigo-300">developer</span>:{" "}
+                  <span className="text-emerald-300">&quot;Bibek Bhagat&quot;</span>;
+                </div>
+                <div className="pl-4">
+                  <span className="text-indigo-300">middlemen</span>:{" "}
+                  <span className="text-red-400">0</span>;
+                </div>
+                <div className="pl-4">
+                  <span className="text-indigo-300">accountability</span>:{" "}
+                  <span className="text-emerald-300">&quot;100%&quot;</span>;
+                </div>
+                <div className="pl-4">
+                  <span className="text-indigo-300">stack</span>: [
+                  <span className="text-yellow-200">&quot;Next.js&quot;</span>,{" "}
+                  <span className="text-yellow-200">&quot;TypeScript&quot;</span>];
+                </div>
+                <div>&#125;</div>
+              </div>
+
+              {/* Accountability pledge */}
+              <div className="mt-6 pt-5 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400">
+                <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Available for new projects
+                </span>
+                <span className="text-[11px] font-mono text-gray-500">Pan-India</span>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
-
-      <style>{`
-        @media (min-width: 768px) {
-          .about-grid {
-            grid-template-columns: 3fr 2fr !important;
-            gap: 5rem !important;
-            align-items: start !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
