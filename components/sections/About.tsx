@@ -3,6 +3,15 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
+const techStack = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Node.js",
+  "Cloud Deployment",
+];
+
 const proofPillars = [
   {
     icon: (
@@ -26,7 +35,7 @@ const proofPillars = [
     ),
     title: "Production Full-Stack Code",
     subtitle: "Built to Convert",
-    description: "Engineered with Next.js 16, React 19, and Tailwind CSS. Clean, lightweight code that loads in under 1 second on mobile networks across India.",
+    description: "Engineered with Next.js, React, TypeScript, Tailwind CSS, Node.js, and Cloud Deployment. Fast, scalable architecture designed for high conversion.",
   },
   {
     icon: (
@@ -173,6 +182,22 @@ export function About() {
               ))}
             </div>
 
+            {/* Core Tech Stack Badges */}
+            <div className="mt-7 pt-6 border-t border-gray-100 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-400 mr-1 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 inline-block" />
+                Tech Stack:
+              </span>
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-md text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200/80 font-mono shadow-2xs hover:bg-white hover:text-indigo-600 hover:border-indigo-200 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
             {/* Direct Call to Action */}
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <WhatsAppButton size="lg" ctaLocation="about_direct">
@@ -293,9 +318,21 @@ export function About() {
                     <span className="text-gray-400">Code Transfer:</span>
                     <span className="text-white font-bold">100% Source Code &amp; DNS</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1 border-t border-gray-800/80 text-[10px] text-gray-400">
-                    <span>Stack:</span>
-                    <span className="text-amber-300">Next.js 16 • React 19 • Tailwind</span>
+                  <div className="pt-2 border-t border-gray-800/80 text-[10px] space-y-1.5">
+                    <div className="flex items-center justify-between text-gray-400">
+                      <span className="text-gray-500 font-bold uppercase tracking-wider">Production Stack:</span>
+                      <span className="text-emerald-400 font-mono">Modern Full-Stack</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pt-0.5">
+                      {techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 rounded-md bg-gray-900 border border-gray-700/80 text-[10px] font-mono text-amber-300 shadow-2xs"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
