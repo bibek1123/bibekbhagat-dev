@@ -102,10 +102,10 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* ── LEFT COLUMN: Value Proposition & Clear Offer ── */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            {/* Price badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-indigo-200/80 bg-indigo-50/70 w-fit mb-6 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse shrink-0" />
-              <span className="text-xs font-bold text-indigo-900 tracking-wide">
+            {/* Price badge with green live point */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/70 w-fit mb-6 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.7)]" />
+              <span className="text-xs font-bold text-emerald-950 tracking-wide">
                 Professional Websites · Starting at ₹6,999
               </span>
             </div>

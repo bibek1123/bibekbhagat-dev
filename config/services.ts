@@ -90,11 +90,11 @@ export const addOnCategories = [
   {
     icon: "file-plus",
     title: "Additional Pages",
-    description: "Need more than your package includes? We can quote extra pages individually.",
+    description: "Need more than your package includes? I can quote extra pages individually.",
   },
   {
     icon: "settings",
     title: "Custom Functionality",
-    description: "Custom calculators, portals, integrations — we can discuss anything.",
+    description: "Custom calculators, portals, integrations — I can build custom solutions for your business.",
   },
 ];

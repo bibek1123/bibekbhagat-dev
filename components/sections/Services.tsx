@@ -102,7 +102,7 @@ export function Services() {
             Built for how Indian businesses actually win customers.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
-            Every website we build is focused on commercial clarity: clear design,
+            Every website I build is focused on commercial clarity: clear design,
             frictionless WhatsApp conversion, mobile excellence, and rock-solid technical setup.
           </p>
         </div>
@@ -298,7 +298,7 @@ export function Services() {
                     </div>
 
                     <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-950 font-medium">
-                      💬 <strong>Why this converts:</strong> Indian business prospects overwhelmingly prefer WhatsApp to filling out lengthy forms. We configure instant prefilled messages so prospects don&apos;t even have to type.
+                      💬 <strong>Why this converts:</strong> Indian business prospects overwhelmingly prefer WhatsApp to filling out lengthy forms. I configure instant prefilled messages so prospects don&apos;t even have to type.
                     </div>
                   </div>
                 )}
@@ -439,7 +439,7 @@ export function Services() {
                     </div>
 
                     <div className="rounded-lg bg-blue-50 border border-blue-100 p-3 text-xs text-blue-950 font-medium">
-                      🔍 <strong>Honest SEO:</strong> We build clean semantic code, meta tags, and structured schema so Google and social networks accurately crawl and display your business. We provide the strongest foundation without promising unrealistic overnight rankings.
+                      🔍 <strong>Honest SEO:</strong> I build clean semantic code, meta tags, and structured schema so Google and social networks accurately crawl and display your business. I provide the strongest foundation without promising unrealistic overnight rankings.
                     </div>
                   </div>
                 )}

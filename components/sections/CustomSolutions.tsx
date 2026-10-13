@@ -29,7 +29,7 @@ export function CustomSolutions() {
             <p className="mt-5 text-base sm:text-lg text-gray-600 leading-relaxed">
               If your business requires online sales, custom booking calendars,
               Indian payment gateways (UPI / Cards), or custom administrative dashboards,
-              we design and engineer custom software solutions tailored to your workflow.
+              I design and engineer custom software solutions tailored to your workflow.
             </p>
 
             {/* Clear Scope Distinction */}

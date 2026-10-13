@@ -18,7 +18,7 @@ const steps = [
     title: "Choose package + 50% advance",
     subtitle: "Scope & Kick-Off",
     description:
-      "We confirm the right package (Starter ₹6,999 or Business ₹12,999) or custom quote. Work kicks off upon receipt of the 50% advance.",
+      "I confirm the right package (Starter ₹6,999 or Business ₹12,999) or custom quote. Work kicks off upon receipt of the 50% advance.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -44,7 +44,7 @@ const steps = [
     title: "Review & revisions",
     subtitle: "Feedback & Polish",
     description:
-      "You review a working preview of your website. We implement your consolidated feedback according to the revision rounds in your package.",
+      "You review a working preview of your website. I implement your consolidated feedback according to the revision rounds in your package.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
@@ -57,7 +57,7 @@ const steps = [
     title: "Final payment + launch",
     subtitle: "Go-Live & Handover",
     description:
-      "Once approved, pay the remaining 50%. We connect your domain, activate SSL, and launch your website live to the world with full credential handover.",
+      "Once approved, pay the remaining 50%. I connect your domain, activate SSL, and launch your website live to the world with full credential handover.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />

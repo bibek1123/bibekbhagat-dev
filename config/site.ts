@@ -86,7 +86,7 @@ export const analyticsConfig = {
 
 // Navigation links
 export const navLinks = [
-  { label: "Our Work", href: "/#work" },
+  { label: "Selected Work", href: "/#work" },
   { label: "Services", href: "/#services" },
   { label: "Pricing", href: "/#pricing" },
   { label: "How It Works", href: "/#process" },
@@ -96,7 +96,7 @@ export const navLinks = [
 // Footer navigation
 export const footerLinks = {
   main: [
-    { label: "Our Work", href: "/#work" },
+    { label: "Selected Work", href: "/#work" },
     { label: "Services", href: "/#services" },
     { label: "Pricing", href: "/#pricing" },
     { label: "How It Works", href: "/#process" },
