@@ -152,7 +152,7 @@ export function Hero() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
-                <span>Fast 1–5 Day Delivery</span>
+                <span>Fast Delivery: Starter (1–2 Days) · Business (3–5 Days)</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" strokeWidth="2.5" className="shrink-0">

@@ -124,7 +124,7 @@ const comparisonData = [
   {
     aspect: "Delivery Turnaround",
     agency: "4–8 weeks with bureaucratic delays",
-    direct: "1–2 days Starter · 3–5 days Business",
+    direct: "Starter: 1–2 working days · Business: 3–5 working days",
   },
 ];
 

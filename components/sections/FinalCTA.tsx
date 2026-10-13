@@ -73,7 +73,7 @@ export function FinalCTA() {
           <p className="mt-6 text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
             You&apos;ve seen what I build. Tell me about your business, your goals,
             and any references you like. I&apos;ll help you choose the right package
-            and get your site live fast (1–2 days Starter, 3–5 days Business).
+            and get your site live quickly (Starter: 1–2 working days, Business: 3–5 working days).
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -105,7 +105,7 @@ export function FinalCTA() {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400">✓</span>
-              <span>Fast 1–5 working days delivery</span>
+              <span>Fast Delivery: Starter (1–2 days) · Business (3–5 days)</span>
             </div>
           </div>
         </div>

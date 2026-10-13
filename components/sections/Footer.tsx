@@ -80,7 +80,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-xs text-gray-400 mt-0.5 m-0">
-                Work 1:1 directly with Bibek Bhagat. Fast 1–5 days launch with 100% source code ownership.
+                Work 1:1 directly with Bibek Bhagat. Fast delivery (Starter: 1–2 days, Business: 3–5 days) with 100% source code ownership.
               </p>
             </div>
           </div>

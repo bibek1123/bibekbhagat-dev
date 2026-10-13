@@ -31,7 +31,7 @@ const steps = [
     title: "Design & development",
     subtitle: "Production Build",
     description:
-      "I personally design and build your website with modern code and responsive layouts (Starter: 1–2 working days, Business: 3–5 working days).",
+      "I personally design and build your website with modern code and responsive layouts. Delivery is typically 1–2 working days for Starter and 3–5 working days for Business.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polyline points="16 18 22 12 16 6" />
