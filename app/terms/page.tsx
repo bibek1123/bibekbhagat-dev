@@ -174,10 +174,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-gray-900 mb-3">7. Timelines</h2>
               <p className="leading-relaxed">
-                Estimated delivery timelines are communicated at project start.
-                Timelines are estimates and begin from the date all required content
-                and access is received. Timelines may be affected by Client response
-                times and project complexity.
+                Standard delivery targets are typically: Starter Website: Typically 1–2 working days; Business Website: Typically 3–5 working days; Custom Features: Timeline confirmed before work begins. Timelines are estimates and begin from the date all required content and access is received. Timelines may be affected by Client response times and project complexity.
               </p>
             </section>
 

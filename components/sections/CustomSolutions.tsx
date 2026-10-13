@@ -53,7 +53,26 @@ export function CustomSolutions() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="mt-5 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-950 text-xs font-semibold">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-amber-700 shrink-0"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>Custom Features: Timeline confirmed before work begins</span>
+            </div>
+
+            <div className="mt-7 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <WhatsAppButton
                 variant="custom"
                 size="lg"
@@ -64,7 +83,7 @@ export function CustomSolutions() {
               </WhatsAppButton>
             </div>
             <p className="text-xs text-gray-500 mt-3 m-0 font-medium">
-              Share your requirements directly with Bibek for a detailed scope and custom quote.
+              Share your requirements directly with Bibek for a detailed scope and custom quote. Timeline confirmed before work begins.
             </p>
           </div>
 

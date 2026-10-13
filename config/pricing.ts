@@ -12,6 +12,7 @@ export interface PricingPackage {
   name: string;
   price: string;
   priceNumeric: number;
+  deliveryTime: string;
   badge?: string;
   description: string;
   features: string[];
@@ -26,6 +27,7 @@ export const pricingPackages: PricingPackage[] = [
     name: "Starter",
     price: "₹6,999",
     priceNumeric: 6999,
+    deliveryTime: "Typically 1–2 working days",
     description:
       "A clean, professional website to get your business online and looking great.",
     features: [
@@ -50,6 +52,7 @@ export const pricingPackages: PricingPackage[] = [
     name: "Business",
     price: "₹12,999",
     priceNumeric: 12999,
+    deliveryTime: "Typically 3–5 working days",
     badge: "Most Popular",
     description:
       "A fully customized website with more pages, deeper content, and built-in analytics setup.",
@@ -71,6 +74,9 @@ export const pricingPackages: PricingPackage[] = [
 
 export const pricingNotes = [
   "50% advance to start. Remaining 50% before launch.",
+  "Starter Website: Typically 1–2 working days.",
+  "Business Website: Typically 3–5 working days.",
+  "Custom Features: Timeline confirmed before work begins.",
   "Domain registration, paid hosting, premium assets, and functionality outside the package scope may cost extra.",
   "E-commerce, online store, payment gateway, booking systems, and custom functionality are quoted separately — not included in Starter or Business.",
   "All prices are quoted in Indian Rupees (₹).",

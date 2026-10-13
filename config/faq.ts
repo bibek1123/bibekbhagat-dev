@@ -11,7 +11,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How long does a website take?",
     answer:
-      "Typically 7–14 working days from the point we have all required content, brand assets, and access. Timelines depend on how quickly content is provided and how many rounds of revisions are needed. We'll give you a clearer estimate based on your project.",
+      "Delivery timelines are structured by project scope:\n\n• Starter Website: Typically 1–2 working days\n• Business Website: Typically 3–5 working days\n• Custom Features: Timeline confirmed before work begins\n\nTimelines begin from the point we have all required content, brand assets, and access.",
   },
   {
     question: "What do I need to provide?",

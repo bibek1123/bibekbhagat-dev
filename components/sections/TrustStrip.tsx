@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 const trustItems = [
   {
     title: "Fast Delivery",
-    subtitle: "7–14 working days typical turnaround",
+    subtitle: "1–2 days Starter · 3–5 days Business",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />

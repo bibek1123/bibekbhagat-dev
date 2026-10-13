@@ -56,10 +56,10 @@ export function Accordion({ items, className }: AccordionProps) {
               aria-labelledby={`faq-question-${index}`}
               className={cn(
                 "overflow-hidden transition-all duration-300",
-                isOpen ? "max-h-96 pb-5" : "max-h-0"
+                isOpen ? "max-h-[600px] pb-5" : "max-h-0"
               )}
             >
-              <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+              <p className="text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
             </div>
           </div>
         );

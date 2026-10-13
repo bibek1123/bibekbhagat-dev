@@ -56,7 +56,7 @@ export function Pricing() {
 
                 <div>
                   {/* Package Title & Price */}
-                  <div className="flex items-baseline justify-between gap-4 pb-6 border-b border-gray-200/20 mb-6">
+                  <div className="flex items-baseline justify-between gap-4 pb-6 border-b border-gray-200/20 mb-5">
                     <div>
                       <h3
                         className={`text-xl font-bold tracking-tight m-0 ${
@@ -85,6 +85,34 @@ export function Pricing() {
                         One-Time
                       </span>
                     </div>
+                  </div>
+
+                  {/* Delivery Time Pill */}
+                  <div
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold mb-6 ${
+                      isBusiness
+                        ? "bg-indigo-500/20 border border-indigo-400/30 text-indigo-200"
+                        : "bg-emerald-50 border border-emerald-200 text-emerald-900"
+                    }`}
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="shrink-0"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>
+                      Delivery: <span className="font-bold">{pkg.deliveryTime}</span>
+                    </span>
                   </div>
 
                   {/* Feature Deliverables List */}
