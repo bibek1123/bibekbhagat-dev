@@ -4,20 +4,6 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { siteConfig, developerProfiles } from "@/config/site";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import {
-  SocialLinksRow,
-  GitHubIcon,
-  LinkedInIcon,
-  LeetCodeIcon,
-  HackerRankIcon,
-} from "@/components/ui/SocialIcons";
-
-const profileIconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  LinkedIn: LinkedInIcon,
-  GitHub: GitHubIcon,
-  LeetCode: LeetCodeIcon,
-  HackerRank: HackerRankIcon,
-};
 
 const showcaseLinks = [
   { label: "Kaasni", category: "D2C E-commerce", href: "/work/ecommerce" },
@@ -185,14 +171,6 @@ export function Footer() {
                   <span>Delhi NCR &amp; Pan-India Remote</span>
                 </div>
               </div>
-
-              {/* Developer Social Links */}
-              <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-500 block mb-2.5">
-                  Follow &amp; Verified Profiles:
-                </span>
-                <SocialLinksRow size="md" theme="dark" />
-              </div>
             </div>
 
             {/* Micro guarantee badge */}
@@ -269,45 +247,33 @@ export function Footer() {
               </span>
             </h3>
 
-            {/* 4 Interactive Profile Badges with Authentic Brand SVG Icons */}
+            {/* 4 Interactive Profile Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
-              {developerProfiles.map((p) => {
-                const IconComponent = profileIconMap[p.name] || GitHubIcon;
-                return (
-                  <a
-                    key={p.name}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-indigo-500/50 hover:bg-white/[0.06] transition-all duration-200 group flex items-center justify-between"
-                    aria-label={`${p.name} profile (${p.handle})`}
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border transition-all duration-200 group-hover:scale-105"
-                        style={{
-                          backgroundColor: `${p.color}15`,
-                          borderColor: `${p.color}35`,
-                          color: p.color,
-                        }}
-                      >
-                        <IconComponent size={14} />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="text-xs font-bold text-white block group-hover:text-indigo-300 transition-colors">
-                          {p.name}
-                        </span>
-                        <span className="text-[10px] font-mono text-gray-400 truncate block">
-                          {p.handle}
-                        </span>
-                      </div>
+              {developerProfiles.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-indigo-500/50 hover:bg-white/[0.06] transition-all duration-200 group flex items-center justify-between"
+                  aria-label={`${p.name} profile (${p.handle})`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: p.color }} />
+                    <div className="min-w-0">
+                      <span className="text-xs font-bold text-white block group-hover:text-indigo-300 transition-colors">
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] font-mono text-gray-500 truncate block">
+                        {p.handle}
+                      </span>
                     </div>
-                    <span className="text-xs text-gray-500 group-hover:text-white transition-colors shrink-0">
-                      ↗
-                    </span>
-                  </a>
-                );
-              })}
+                  </div>
+                  <span className="text-xs text-gray-500 group-hover:text-white transition-colors shrink-0">
+                    ↗
+                  </span>
+                </a>
+              ))}
             </div>
 
             {/* Production Tech Stack Mini Badges */}
