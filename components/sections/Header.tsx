@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { navLinks } from "@/config/site";
+import { SocialLinksRow } from "@/components/ui/SocialIcons";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,8 +86,10 @@ export function Header() {
               ))}
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Desktop CTA & Socials */}
+            <div className="hidden md:flex items-center gap-2.5">
+              <SocialLinksRow size="sm" theme="light" />
+              <div className="h-4 w-px bg-gray-200 mx-0.5" aria-hidden="true" />
               <WhatsAppButton
                 size="sm"
                 ctaLocation="header"
@@ -167,7 +170,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-2">
+          <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-3">
             <WhatsAppButton
               size="lg"
               ctaLocation="mobile_header"
@@ -175,6 +178,15 @@ export function Header() {
             >
               Get a Free Quote
             </WhatsAppButton>
+
+            {/* Direct Developer Profiles Row in Mobile Menu */}
+            <div className="flex flex-col items-center gap-2 pt-2 border-t border-gray-100">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
+                Direct Developer Profiles
+              </span>
+              <SocialLinksRow size="md" theme="light" />
+            </div>
+
             <p className="text-center text-xs text-gray-400 m-0">
               Direct conversation with Bibek · Starting ₹6,999
             </p>
